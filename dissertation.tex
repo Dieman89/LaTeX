@@ -41,17 +41,17 @@
 
 \begin{document}
   \frenchspacing
-  \raggedbottom
+  \raggedbottom{}
   \selectlanguage{english}
 
   \pagestyle{plain}
   \pagenumbering{roman}
 
-  \singlespacing
+  \singlespacing{}
   \input{text/ch0-title}
   \input{text/ch0-backside}
 
-  \onehalfspacing
+  \onehalfspacing{}
   \input{text/ch0-contents}
 
   \chapter*{Abstract}
@@ -60,10 +60,10 @@
 
   \input{text/ch0-acknowledgements}
 
-  \cleardoublepage
+  \cleardoublepage{}
   \pagestyle{scrheadings}
   \pagenumbering{arabic}
-  \onehalfspacing
+  \onehalfspacing{}
 
   \chapter{Introduction}\label{c:Introduction}
   \input{text/ch1}
@@ -86,15 +86,15 @@
   \chapter{Conclusions}\label{c:Conclusions}
   \input{text/ch7}
 
-  \cleardoublepage
+  \cleardoublepage{}
   \appendix
 
-  \singlespacing
+  \singlespacing{}
   \input{text/app-bibliography}
   \chapter{Appendix}\label{c:Appendix-A}
   \input{text/appendix-a}
   \chapter{Appendix}\label{c:Appendix-B}
   \input{text/appendix-b}
-  \cleardoublepage
+  \cleardoublepage{}
 
 \end{document}
