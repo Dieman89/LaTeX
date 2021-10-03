@@ -60,12 +60,12 @@
 % Packages with options that might require adjustments
 % ********************************************************************
 \PassOptionsToPackage{english}{babel}
-  \usepackage{babel}
+\usepackage{babel}
 
 \usepackage{csquotes}
 \PassOptionsToPackage{%
   backend=bibtex,
-  bibencoding=ascii,
+bibencoding=ascii,
   language=auto,
   style=numeric,
   sorting=nyt,
@@ -75,7 +75,7 @@
   \usepackage{biblatex}
 
 \PassOptionsToPackage{fleqn}{amsmath}       % math environments and more by the AMS
-  \usepackage{amsmath}
+\usepackage{amsmath}
 
 % ********************************************************************
 % General useful packages
@@ -83,17 +83,17 @@
 \usepackage{amssymb}
 \usepackage{lipsum}
 \PassOptionsToPackage{T1}{fontenc} % T2A for cyrillics
-    \usepackage{fontenc}
+\usepackage{fontenc}
 \usepackage{textcomp} % fix warning with missing font shapes
 \usepackage{scrhack} % fix warnings when using KOMA with listings package
 \usepackage{xspace} % to get the spacing after macros right
 \usepackage{mparhack} % get marginpar right
 %\usepackage[latest]{latexrelease} % will be used once available in more distributions (ISSUE #107)
 \PassOptionsToPackage{printonlyused,smaller}{acronym}
-  \usepackage{acronym} % nice macros for handling all acronyms in the thesis
-  %\renewcommand{\bflabel}[1]{{#1}\hfill} % fix the list of acronyms --> no longer working
-  %\renewcommand*{\acsfont}[1]{\textsc{#1}}
-  \renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
+\usepackage{acronym} % nice macros for handling all acronyms in the thesis
+%\renewcommand{\bflabel}[1]{{#1}\hfill} % fix the list of acronyms --> no longer working
+%\renewcommand*{\acsfont}[1]{\textsc{#1}}
+\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
 % ****************************************************************************************************
 
 
