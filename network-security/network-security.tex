@@ -1,0 +1,85 @@
+\documentclass[oneside,openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,listof=totoc,paper=a4,fontsize=11pt,english,BCOR=5mm]{scrreprt}
+
+% -----------------------------------------------------------------------------
+%   CONFIGURATION
+% -----------------------------------------------------------------------------
+% Thesis and submission:
+\newcommand{\myTitle}{Network Security Logbook}
+\newcommand{\mySubmissionYear}{2021}
+\newcommand{\mySubmissionMonth}{December}
+\newcommand{\mySubmissionDay}{15}
+
+% My information:
+\newcommand{\myFirstName}{Alessandro}
+\newcommand{\myLastName}{Buonerba}
+\newcommand{\myWebsite}{https://www.linkedin.com/in/buonerba/}
+
+% Module Leader:
+\newcommand{\myProfTitle}{Dr}
+\newcommand{\myProfFirstName}{Anatolij}
+\newcommand{\myProfLastName}{Bezemskij}
+\newcommand{\myProfWebsite}{https://www.gre.ac.uk/people/rep/las/anatolij-bezemskij}
+
+% University related:
+\newcommand{\myDepartment}{Department of Computing \& Mathematical Sciences}
+\newcommand{\myFaculty}{Liberal Arts \& Sciences}
+\newcommand{\myUni}{University of Greenwich}
+% -----------------------------------------------------------------------------
+
+\input{classicthesis-config}
+\addbibresource{library.bib}
+
+\begin{document}
+  \frenchspacing
+  \raggedbottom{}
+  \selectlanguage{english}
+
+  \pagestyle{plain}
+  \pagenumbering{roman}
+
+  \singlespacing{}
+  \input{text/ch0-title}
+
+  \onehalfspacing{}
+  \input{text/ch0-contents}
+
+  \cleardoublepage{}
+  \pagestyle{scrheadings}
+  \pagenumbering{arabic}
+  \onehalfspacing{}
+
+  \chapter{Week 1: Networking Quiz}\label{c:Week-1}
+  \input{text/wk1}
+
+  \chapter{Week 2: Malware}\label{c:Week-2}
+  \input{text/wk2}
+
+  \chapter{Week 3: Denial of Service}\label{c:Week-3}
+  \input{text/wk3}
+
+  \chapter{Week 4: Cyber Physical Attacks}\label{c:Week-4}
+  \input{text/wk4}
+
+  \chapter{Week 5: Web Security}\label{c:Week-5}
+  \input{text/wk5}
+
+  \chapter{Week 6: Social Engineering \& Phishing}\label{c:Week-6}
+  \input{text/wk6}
+
+  \chapter{Week 7: Cloud, BYOD and Insider Threat}\label{c:Week-7}
+  \input{text/wk7}
+
+  \chapter{Week 8: Defence Measures}\label{c:Week-8}
+  \input{text/wk8}
+
+  \chapter{Conclusion}\label{c:Conclusion}
+  \input{text/conclusion}
+
+  \cleardoublepage{}
+  \appendix
+
+  \singlespacing{}
+  \input{text/app-bibliography}
+  \cleardoublepage{}
+
+\end{document}

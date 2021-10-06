@@ -1,3 +1,3 @@
 #!/bin/bash
-./cleanup.sh
-./build.sh
+./cleanup.sh "$1"
+./build.sh "$1"
