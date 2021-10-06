@@ -1,0 +1,49 @@
+\section{Synopsis}
+\label{s:Synopsis-2}
+GraphQL is a query language for APIs and a runtime to execute queries. Using
+GraphQL queries, clients define precisely what data they wish to retrieve or
+mutate on a server, leading to fewer round trips and reduced response sizes.
+Although interest in GraphQL is on the rise, with increasing adoption at major
+organizations, little is known about what GraphQL interfaces look like in
+practice. This lack of knowledge makes it hard for providers to understand what
+practices promote idiomatic, easy-to-use APIs, and what pitfalls to avoid.
+
+To address this gap, we study the design of GraphQL interfaces in practice by
+analyzing their schemas --- the descriptions of their exposed data types and the
+possible operations on the underlying data. We base our study on two novel
+corpuses of GraphQL schemas, one of 16 commercial GraphQL schemas and the other
+of 8,399 GraphQL schemas mined from GitHub projects. We make available to other
+researchers those schemas mined from GitHub whose licenses permit redistribution.
+We also make available the scripts to mine the whole corpus. Using the two
+corpuses, we characterize the size of schemas and their use of GraphQL features
+and assess the use of both prescribed and organic naming conventions. We also
+report that a majority of APIs are susceptible to denial of service through
+complex queries, posing real security risks previously discussed only in theory.
+We also assess ways in which GraphQL APIs attempt to address these concerns.
+
+\section{Useful Quotes}
+\label{s:Useful-Quotes-2}
+Clients send queries that precisely define the data they wish to retrieve or
+mutate \citep{witternEmpiricalStudyGraphQL2019a}.
+
+GraphQL prescribes a statically typed interface, which drives developer tooling
+like GraphiQL, an online IDE helping developers explore schemas and write and
+validate queries, or type-based data mocking for testing services
+\citep{witternEmpiricalStudyGraphQL2019a}.
+
+\section{Personal Reflection}
+\label{s:Personal-Reflection-2}
+This paper, differently from the previous one goes more into depth with the schema and the language definition.
+Since to generate markdown from a schema, we must firstly analyse the schema, it will be a useful paper for when
+I have to explain the references for data types.
+
+\section{Question Raised}
+\label{s:Question-Raised-2}
+
+\section{Notes}
+\label{s:Notes-2}
+The article conclusion point out that there are concerns about denial of service
+with large APIs that could have nested queries. This could be easily solved with
+a solution for the N+1 problem and limiting the rate and depth limiting at the
+edge. New modern CDN can also wrap the APIs and provide an extremely useful
+layer of protection, caching and lower response rate for the API.

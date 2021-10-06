@@ -1,0 +1,77 @@
+\documentclass[oneside,openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,listof=totoc,paper=a4,fontsize=11pt,english,BCOR=5mm]{scrreprt}
+
+% -----------------------------------------------------------------------------
+%   CONFIGURATION
+% -----------------------------------------------------------------------------
+% Thesis and submission:
+\newcommand{\myTitle}{Markdown Autogeneration from a GraphQL Schema}
+\newcommand{\mySubmissionYear}{2021}
+\newcommand{\mySubmissionMonth}{October}
+\newcommand{\mySubmissionDay}{07}
+
+% My information:
+\newcommand{\myFirstName}{Alessandro}
+\newcommand{\myLastName}{Buonerba}
+\newcommand{\myWebsite}{https://www.linkedin.com/in/buonerba/}
+
+% Primary supervisor:
+\newcommand{\myProfTitle}{Dr}
+\newcommand{\myProfFirstName}{Konstantin}
+\newcommand{\myProfLastName}{Kapinchev}
+\newcommand{\myProfWebsite}{https://www.gre.ac.uk/people/rep/las/dr-konstantin-kapinchev}
+
+% Co-supervisor:
+\newcommand{\myOtherProfTitle}{Dr}
+\newcommand{\myOtherProfFirstName}{Sadiq}
+\newcommand{\myOtherProfLastName}{Sani}
+\newcommand{\myOtherProfWebsite}{https://www.gre.ac.uk/people/rep/las/dr-sadiq-sani}
+
+% University related:
+\newcommand{\myDepartment}{Department of Computing \& Mathematical Sciences}
+\newcommand{\myFaculty}{Liberal Arts \& Sciences}
+\newcommand{\myUni}{University of Greenwich}
+% -----------------------------------------------------------------------------
+
+\input{classicthesis-config}
+\addbibresource{library.bib}
+
+\begin{document}
+  \frenchspacing
+  \raggedbottom{}
+  \selectlanguage{english}
+
+  \pagestyle{plain}
+  \pagenumbering{roman}
+
+  \singlespacing{}
+  \input{text/ch0-title}
+
+  \cleardoublepage{}
+  \pagestyle{scrheadings}
+  \pagenumbering{arabic}
+  \onehalfspacing{}
+
+  \chapter{An Empirical Study of GraphQL Schemas}\label{c:Journal-1}
+  \input{text/j1}
+
+  \chapter{Generating GraphQL-Wrappers for REST(-like) APIs}\label{c:Journal-2}
+  \input{text/j2}
+
+  \chapter{The exploitation of OpenAPI documentation for the generation of web
+  frontends}\label{c:Journal-3}
+  \input{text/j3}
+
+  \chapter{Framework Study for Agile Software Development Via Scrum and Kanban}\label{c:Journal-4}
+  \input{text/j4}
+
+  \chapter{Journal 5}\label{c:Journal-5}
+  \input{text/j5}
+
+  \cleardoublepage{}
+  \appendix
+
+  \singlespacing{}
+  \input{text/app-bibliography}
+  \cleardoublepage{}
+
+\end{document}

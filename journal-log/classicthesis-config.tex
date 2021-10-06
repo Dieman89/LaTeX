@@ -1,0 +1,318 @@
+% ****************************************************************************************************
+% classicthesis-config.tex
+% formerly known as loadpackages.sty, classicthesis-ldpkg.sty, and classicthesis-preamble.sty
+% Use it at the beginning of your ClassicThesis.tex, or as a LaTeX Preamble
+% in your ClassicThesis.{tex,lyx} with \input{classicthesis-config}
+% ****************************************************************************************************
+% If you like the classicthesis, then I would appreciate a postcard.
+% My address can be found in the file ClassicThesis.pdf. A collection
+% of the postcards I received so far is available online at
+% http://postcards.miede.de
+
+% ****************************************************************************************************
+% 0. Set the encoding of your files. UTF-8 is the only sensible encoding nowadays. If you can't read
+% äöüßáéçèê∂åëæƒÏ€ then change the encoding setting in your editor, not the line below. If your editor
+% does not support utf8 use another editor!
+% ****************************************************************************************************
+\PassOptionsToPackage{utf8}{inputenc}
+  \usepackage{inputenc}
+
+
+% ****************************************************************************************************
+% 1. Configure classicthesis for your needs here, e.g., remove "drafting" below
+% in order to deactivate the time-stamp on the pages
+% ****************************************************************************************************
+\PassOptionsToPackage{eulerchapternumbers,listings,pdfspacing,subfig,beramono,dottedtoc}{classicthesis}
+% ********************************************************************
+% Available options for classicthesis.sty
+% (see ClassicThesis.pdf for more information):
+% drafting
+% parts nochapters linedheaders
+% eulerchapternumbers beramono eulermath pdfspacing minionprospacing
+% tocaligned dottedtoc manychapters
+% listings floatperchapter subfig
+% ********************************************************************
+
+
+% ****************************************************************************************************
+% 2. Personal data and user ad-hoc commands
+% ****************************************************************************************************
+% moved to thesis.tex
+
+
+% ********************************************************************
+% Setup, finetuning, and useful commands
+% ********************************************************************
+\newcounter{dummy} % necessary for correct hyperlinks (to index, bib, etc.)
+\newlength{\abcd} % for ab..z string length calculation
+\providecommand{\mLyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+\newcommand{\ie}{i.\,e.\ }
+\newcommand{\Ie}{I.\,e.\ }
+\newcommand{\eg}{e.\,g.\ }
+\newcommand{\Eg}{E.\,g.\ }
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 3. Loading some handy packages
+% ****************************************************************************************************
+% ********************************************************************
+% Packages with options that might require adjustments
+% ********************************************************************
+\PassOptionsToPackage{english}{babel}
+\usepackage{babel}
+
+\usepackage{csquotes}
+\PassOptionsToPackage{%
+  backend=bibtex,
+  bibencoding=ascii,
+  language=auto,
+  style=numeric,
+  sorting=nyt,
+  maxbibnames=10,
+  natbib=true
+}{biblatex}
+\usepackage[style=authoryear]{biblatex}
+\usepackage{xurl}
+\PassOptionsToPackage{fleqn}{amsmath}       % math environments and more by the AMS
+\usepackage{amsmath}
+
+% ********************************************************************
+% General useful packages
+% ********************************************************************
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{lipsum}
+\PassOptionsToPackage{T1}{fontenc} % T2A for cyrillics
+\usepackage{fontenc}
+\usepackage{textcomp} % fix warning with missing font shapes
+\usepackage{scrhack} % fix warnings when using KOMA with listings package
+\usepackage{xspace} % to get the spacing after macros right
+\usepackage{mparhack} % get marginpar right
+%\usepackage[latest]{latexrelease} % will be used once available in more distributions (ISSUE #107)
+\PassOptionsToPackage{printonlyused,smaller}{acronym}
+\usepackage{acronym} % nice macros for handling all acronyms in the thesis
+%\renewcommand{\bflabel}[1]{{#1}\hfill} % fix the list of acronyms --> no longer working
+%\renewcommand*{\acsfont}[1]{\textsc{#1}}
+\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 4. Setup floats: tables, (sub)figures, and captions
+% ****************************************************************************************************
+\usepackage{tabularx} % better tables
+\setlength{\extrarowheight}{3pt} % increase table row height
+\newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
+\newcommand{\myfloatalign}{\centering} % to be used with each float for alignment
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{caption}
+% Thanks to cgnieder and Claus Lahiri
+% http://tex.stackexchange.com/questions/69349/spacedlowsmallcaps-in-caption-label
+% [REMOVED DUE TO OTHER PROBLEMS, SEE ISSUE #82]
+%\DeclareCaptionLabelFormat{smallcaps}{\bothIfFirst{#1}{~}\MakeTextLowercase{\textsc{#2}}}
+%\captionsetup{font=small,labelformat=smallcaps} % format=hang,
+\captionsetup{font=small} % format=hang,
+\usepackage{subfig}
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 5. Setup code listings
+% ****************************************************************************************************
+\usepackage{listings}
+%\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % For special keywords
+\lstset{language=[LaTeX]Tex,%C++,
+  morekeywords={PassOptionsToPackage,selectlanguage},
+  keywordstyle=\color{RoyalBlue},%\bfseries,
+  basicstyle=\small\ttfamily,
+  %identifierstyle=\color{NavyBlue},
+  commentstyle=\color{Green}\ttfamily,
+  stringstyle=\rmfamily,
+  numbers=left,
+  numberstyle=\scriptsize,%\tiny
+  stepnumber=5,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  %frameround=ftff,
+  %frame=single,
+  belowcaptionskip=.75\baselineskip{}
+  %frame=L
+}
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 6. PDFLaTeX, hyperreferences and citation backreferences
+% ****************************************************************************************************
+% ********************************************************************
+% Using PDFLaTeX
+% ********************************************************************
+\PassOptionsToPackage{pdftex,hyperfootnotes=false,pdfpagelabels}{hyperref}
+\usepackage{hyperref}  % backref linktocpage pagebackref
+\pdfcompresslevel=9
+\pdfadjustspacing=1
+\PassOptionsToPackage{pdftex}{graphicx}
+    \usepackage{graphicx}
+
+
+% ********************************************************************
+% Hyperreferences
+% ********************************************************************
+\hypersetup{breaklinks=true}
+\hypersetup{linktocpage=true}
+\hypersetup{colorlinks=true}
+\hypersetup{urlcolor=RoyalBlue}
+\hypersetup{linkcolor=RoyalBlue}
+\hypersetup{citecolor=webgreen}
+\hypersetup{pageanchor=true}
+\hypersetup{plainpages=false}
+%\hypersetup{bookmarksnumbered=true}
+%\hypersetup{bookmarksopen=true}
+%\hypersetup{bookmarksopenlevel=true}
+%hypertexnames=true, nesting=true, frenchlinks
+\hypersetup{pdfstartpage=3}
+\hypersetup{pdfstartview=FitV}
+\hypersetup{pdfpagemode=UseNone}
+\hypersetup{pageanchor=true}
+\hypersetup{pdfpagemode=UseOutlines}
+\hypersetup{pdftitle={\myTitle}}
+\hypersetup{pdfauthor={\textcopyright\ \myFirstName\ \myLastName, \myUni, \myFaculty}}
+\hypersetup{pdfsubject={}}
+\hypersetup{pdfkeywords={}}
+\hypersetup{pdfhighlight=/O}
+
+
+% ********************************************************************
+% Setup autoreferences
+% ********************************************************************
+% There are some issues regarding autorefnames
+% http://www.ureader.de/msg/136221647.aspx
+% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=latexwords
+% you have to redefine the makros for the
+% language you use, e.g., american, ngerman
+% (as chosen when loading babel/AtBeginDocument)
+% ********************************************************************
+\makeatletter
+\@ifpackageloaded{babel}%
+{%
+  \addto\extrasenglish{%
+    \renewcommand*{\figureautorefname}{Figure}%
+    \renewcommand*{\tableautorefname}{Table}%
+    \renewcommand*{\partautorefname}{Part}%
+    \renewcommand*{\chapterautorefname}{Chapter}%
+    \renewcommand*{\sectionautorefname}{Section}%
+    \renewcommand*{\subsectionautorefname}{Section}%
+    \renewcommand*{\subsubsectionautorefname}{Section}%
+  }%
+  \addto\extrasngerman{%
+    \renewcommand*{\paragraphautorefname}{Absatz}%
+    \renewcommand*{\subparagraphautorefname}{Unterabsatz}%
+    \renewcommand*{\footnoteautorefname}{Fu\"snote}%
+    \renewcommand*{\FancyVerbLineautorefname}{Zeile}%
+    \renewcommand*{\theoremautorefname}{Theorem}%
+    \renewcommand*{\appendixautorefname}{Anhang}%
+    \renewcommand*{\equationautorefname}{Gleichung}%
+    \renewcommand*{\itemautorefname}{Punkt}%
+  }%
+  % Fix to getting autorefs for subfigures right (thanks to Belinda Vogt for changing the definition)
+  \providecommand{\subfigureautorefname}{\figureautorefname}%
+}{\relax}
+\makeatother
+
+
+% ****************************************************************************************************
+% 7. Last calls before the bar closes
+% ****************************************************************************************************
+% ********************************************************************
+% Development Stuff
+% ********************************************************************
+%\listfiles
+%\PassOptionsToPackage{l2tabu,orthodox,abort}{nag}
+%   \usepackage{nag}
+%\PassOptionsToPackage{warning, all}{onlyamsmath}
+%   \usepackage{onlyamsmath}
+
+% ********************************************************************
+% Last, but not least...
+% ********************************************************************
+\usepackage{classicthesis}
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 8. Further adjustments (experimental)
+% ****************************************************************************************************
+% ********************************************************************
+% Changing the text area
+% ********************************************************************
+%\linespread{1.05} % a bit more for Palatino
+%\areaset[current]{312pt}{761pt} % 686 (factor 2.2) + 33 head + 42 head \the\footskip
+%\setlength{\marginparwidth}{7em}%
+%\setlength{\marginparsep}{2em}%
+
+% ********************************************************************
+% Using different fonts
+% ********************************************************************
+%\usepackage[oldstylenums]{kpfonts} % oldstyle notextcomp
+%\usepackage[osf]{libertine}
+%\usepackage[light,condensed,math]{iwona}
+%\renewcommand{\sfdefault}{iwona}
+%\usepackage{lmodern} % <-- no osf support :-(
+%\usepackage{cfr-lm} %
+%\usepackage[urw-garamond]{mathdesign} <-- no osf support :-(
+%\usepackage[default,osfigures]{opensans} % scale=0.95
+%\usepackage[sfdefault]{FiraSans}
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 9. LTU Extensions
+% ****************************************************************************************************
+\usepackage{colortbl}
+\usepackage{setspace}
+\usepackage{fp}
+\usepackage{soul}
+
+\usepackage{textcomp}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=newest}
+
+\usepackage[shortcuts]{extdash}
+%\usepackage{epigraph}
+
+\usepackage{tikz-timing}[2011/01/09]
+\usetikzlibrary{arrows, backgrounds, patterns, shapes}
+\usepackage{arydshln}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\newcommand{\algorithmautorefname}{Algorithm}
+
+\renewcommand{\lstlistlistingname}{List of Listings}
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+
+\renewcommand{\rmdefault}{pnc}
+\renewcommand{\rmdefault}{pplx}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}m{#1}}
+
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+\numberwithin{algorithm}{chapter}
+\sloppy
+
+\renewcommand{\bibfont}{\footnotesize}
+
+\newcommand{\hinttext}[1]{\textcolor{Gray!70!Red}{#1}}
+
+% ****************************************************************************************************

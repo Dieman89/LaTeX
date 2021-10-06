@@ -1,0 +1,64 @@
+\documentclass[oneside,openright,titlepage,numbers=noenddot,headinclude,footinclude=true,cleardoublepage=empty,listof=totoc,paper=a4,fontsize=11pt,english,BCOR=5mm]{scrreprt}
+
+% -----------------------------------------------------------------------------
+%   CONFIGURATION
+% -----------------------------------------------------------------------------
+% Thesis and submission:
+\newcommand{\myTitle}{Markdown Autogeneration from a GraphQL Schema}
+\newcommand{\mySubmissionYear}{2022}
+\newcommand{\mySubmissionMonth}{May}
+\newcommand{\mySubmissionDay}{15}
+
+% My information:
+\newcommand{\myFirstName}{Alessandro}
+\newcommand{\myLastName}{Buonerba}
+\newcommand{\myWebsite}{https://www.linkedin.com/in/buonerba/}
+
+% Primary supervisor:
+\newcommand{\myProfTitle}{Dr}
+\newcommand{\myProfFirstName}{Konstantin}
+\newcommand{\myProfLastName}{Kapinchev}
+\newcommand{\myProfWebsite}{https://www.gre.ac.uk/people/rep/las/dr-konstantin-kapinchev}
+
+% Co-supervisor:
+\newcommand{\myOtherProfTitle}{Dr}
+\newcommand{\myOtherProfFirstName}{Sadiq}
+\newcommand{\myOtherProfLastName}{Sani}
+\newcommand{\myOtherProfWebsite}{https://www.gre.ac.uk/people/rep/las/dr-sadiq-sani}
+
+% University related:
+\newcommand{\myDepartment}{Department of Computing \& Mathematical Sciences}
+\newcommand{\myFaculty}{Liberal Arts \& Sciences}
+\newcommand{\myUni}{University of Greenwich}
+% -----------------------------------------------------------------------------
+
+\input{classicthesis-config}
+\addbibresource{library.bib}
+
+\begin{document}
+  \frenchspacing
+  \raggedbottom{}
+  \selectlanguage{english}
+
+  \pagestyle{plain}
+  \pagenumbering{roman}
+
+  \singlespacing{}
+  \input{text/ch0-title}
+
+  \cleardoublepage{}
+  \pagestyle{scrheadings}
+  \pagenumbering{arabic}
+  \onehalfspacing{}
+
+  \chapter{Project Proposal}\label{c:Project-Proposal}
+  \input{text/ch1}
+
+  \cleardoublepage{}
+  \appendix
+
+  \singlespacing{}
+  \input{text/app-bibliography}
+  \cleardoublepage{}
+
+\end{document}

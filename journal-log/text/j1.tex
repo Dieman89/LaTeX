@@ -1,0 +1,71 @@
+\section{Synopsis}
+\label{s:Synopsis-1}
+GraphQL is a query language and thereupon-based paradigm for implementing web
+Application Programming Interfaces (APIs) for client-server interactions. Using
+GraphQL, clients define precise, nested data-requirements in typed queries,
+which are resolved by servers against (possibly multiple) backend systems, like
+databases, object storages, or other APIs. Clients receive only the data they
+care about, in a single request. However, providers of existing REST(-like) APIs
+need to implement additional GraphQL interfaces to enable these advantages. We
+here assess the feasibility of automatically generating GraphQL wrappers for
+existing REST(-like) APIs. A wrapper, upon receiving GraphQL queries, translates
+them to requests against the target API\@. We discuss the challenges for
+creating such wrappers, including dealing with data sanitation, authentication,
+or handling nested queries. We furthermore present a prototypical implementation
+of OASGraph. OASGraph takes as input an OpenAPI Specification (OAS) describing
+an existing REST(-like) web API and generates a GraphQL wrapper for it. We
+evaluate OASGraph by running it, as well as an existing open source alternative,
+against 959 publicly available OAS\@. This experiment shows that OASGraph
+outperforms the existing alternative and is able to create a GraphQL wrapper for
+\$\$89.5\textbackslash \%\$\$of the APIs --- however, with limitations in many
+cases. A subsequent analysis of errors and warnings produced by OASGraph shows
+that missing or ambiguous information in the assessed OAS hinders creating
+complete wrappers. Finally, we present a use case of the IBM Watson Language
+Translator API that shows that small changes to an OAS allow OASGraph to
+generate more idiomatic and more expressive GraphQL wrappers.
+
+\section{Useful Quotes}
+\label{s:Useful-Quotes-1}
+Clients frequently receive unneeded data, or have to chain multiple requests to
+obtain desired results \citep{witternGeneratingGraphQLWrappersREST2018}.
+
+Another issue is that REST(-like) APIs amass endpoints when providers add new
+capabilities to an API to preserve compatibility --- for example to react to new
+client requirement without breaking compatibility with existing clients
+\citep{witternGeneratingGraphQLWrappersREST2018}.
+
+A GraphQL client introspects a server's schema, i.e., queries it with GraphQL
+queries, to learn about exposed data types and possible operations. The
+GraphiQL5 online-IDE uses introspection to allow developers to familiarize with
+GraphQL schemas \citep{witternGeneratingGraphQLWrappersREST2018}.
+
+The Open API Specification (OAS), formerly known as Swagger, is ``a standard,
+programming language-agnostic interface description for REST APIs'' [10]. OAS is
+a format used by providers to describe and document APIs in an organized and
+predictable manner \citep{witternGeneratingGraphQLWrappersREST2018}.
+
+\section{Personal Reflection}
+\label{s:Personal-Reflection-1}
+This paper will come very handy for when I have to explain the principal reasons
+of why users would like to create or refactor their REST-like APIs to GraphQL.
+The paper also point out that a GraphQL client can introspects a server schema
+but fails to state that this must be enabled and that usually is disabled to prevent
+anyone to see and fully inspect all the resources available in the current API schema.
+With an introspection it is possible to see queries, types, fields and all the directives
+supported by the API.
+Another good point and a reason why my proposed title and project is even more valuable,
+is that since introspection can be dangerous, it is very often (almost by default) disabled.
+Meaning that is not possible to utilise GraphQL Voyagers or swagger alternative that supports GraphQL.
+In other words, there is no way to see what's the schema is like or any description that comes with it.
+My project will most likely solve and help teams or individual that do not want to enable introspection.
+
+\section{Question Raised}
+\label{s:Question-Raised-1}
+What is the main reason why users want to create or refactor their REST-like APIs to GraphQL?
+Is it important to keep introspection on? What will the users lose if they disable it?
+How would you document a GraphQL API since it doesn't have Swagger?
+
+\section{Notes}
+\label{s:Notes-1}
+Important things to take are introspections, why do developers want to disable it and how does it make
+a documentation tooling a necessity for a team.
