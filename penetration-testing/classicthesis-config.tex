@@ -39,7 +39,6 @@
 % ****************************************************************************************************
 % moved to thesis.tex
 
-
 % ********************************************************************
 % Setup, finetuning, and useful commands
 % ********************************************************************
@@ -59,8 +58,8 @@
 % ********************************************************************
 % Packages with options that might require adjustments
 % ********************************************************************
-\PassOptionsToPackage{english}{babel}
-\usepackage{babel}
+\PassOptionsToPackage{british,english}{babel}
+\usepackage[british,english]{babel}
 
 \usepackage{csquotes}
 \PassOptionsToPackage{%
@@ -70,7 +69,9 @@
   style=numeric,
   sorting=nyt,
   maxbibnames=10,
-  natbib=true
+  natbib=true,
+  urldate=short,
+  dateabbrev=false
 }{biblatex}
 \usepackage[style=authoryear]{biblatex}
 \usepackage{xurl}
