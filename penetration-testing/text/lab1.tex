@@ -8,7 +8,7 @@ network monitor tool such as Wireshark is often used.
 The first part of the task is to connect to the FTP server and download the .pcap
 file with all the captured network traffic.
 
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/ftp-get-pcap}
   \caption{Connect to the FTP and get the .pcap file}
@@ -18,7 +18,7 @@ file with all the captured network traffic.
 Now that the file has been downloaded, it can be found in the home directory
 and we can start the analysis of the network traffic through Wireshark following the
 tasks assigned to this lab.
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/wireshark-pcap}
   \caption{Open .pcap with Wireshark}
@@ -42,7 +42,7 @@ The result is shown in the figure below.
 The second task asks to find the application-layer protocols that are used in the
 captured network traffic. This can be displayed using the Protocol Hierarchy command.
 The result is shown in the figure below.
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{figures/protocol-hierarchy}
   \caption{Protocol Hierarchy}
@@ -98,7 +98,7 @@ Following the instructions and the man page for the tcpdump command, I have been
 to reproduce a one liner to output a number of unique MAC addresses in the provided and previously
 used .pcap file. Below a picture with the result.
 
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{figures/tcpdump}
   \caption{TCP Dump}
