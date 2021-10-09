@@ -1,8 +1,38 @@
 \section*{Introduction}
 \label{s:Introduction}
+API documentation is a very important part of the software development process,
+it improves the dev experience and makes it easier to integrate, improves
+maintability and easily enables versioning with indication on deprecated fields
+\citep{fanWhyAPIDocumentation2021}. Working with API documentation is not always
+straightforward, especially when the working with gateway and federations, as it
+would require much effort from all the developers involved in the process.
+Swagger makes documentation for REST-APIs very straightforward, as it
+automatically generates HTML based visualisation and interaction out of the box
+for any consumer of the API \citep{korenExploitationOpenAPIDocumentation2018}.
+Since Facebook released GraphQL to the mass in 2015, many individual developers
+and companies are switching and converting to it to build their own APIs as it
+enables them to have a much more flexible and efficient way of building their
+APIs \citep{britoRESTVsGraphQL2020}. GraphQL gives to the consumer only the data
+that he needs, solving the overfetching and underfetching problem related to the
+traditional REST-APIs \citep{witternGeneratingGraphQLWrappersREST2018}. Querying
+the API the way that user want, enables for so much flexibility but can also be
+a threat to security if not handled properly. The objective of this project is
+to enable API producers to build a secure GraphQL APIs without recheable
+introspection on endpoint while still count on a tool that can generate a
+framework agnostic structured documentation.
 
 \section*{Problem Domain}
 \label{s:Problem-Domain}
+When working on such a problem, there are many different complications as having
+updated documentation for GraphQL APIs, one of them - and probably the most
+important - being security. Introspection enables users to query a GraphQL API
+and discover its schema structure, giving bad actors a chance to discover
+potentially malicious operations \citep{khalilWhyYouShould2021} easily and
+disrupt the availability of the API, but it is also a requirement for tools such
+as \textit{GraphiQL} and \textit{Playground}. This makes this a severe dilemma
+for producers who want to keep their APIs as secure as possible, away from
+indiscreet eyes, and open to potential threats but still have documentation
+tooling.
 
 \section*{Methodology}
 \label{s:Methodology}
