@@ -40,9 +40,23 @@ meant to add, edit or delete specific data on the database, making it a real
 threat. Many other security issues are linked to the activation of the
 introspection and misconfiguration; some are information disclosure, insecure
 direct object references and inexistent ACL \citep{
-yeswehackHowExploitGraphQL2021}. Having introspection disabled is the right
-choice looking at a security perspective, and this project will help solve the
-downside of not having tools to help document the API and more.
+yeswehackHowExploitGraphQL2021}.
+By design, GraphQL has a fetching inefficiency known as \textit{N+1 Problem}
+where amount of queries executed against the database (or other upstream
+services) can be as large as the amount of nodes in the resulting graph \citep{
+graphqlbypopSuppressingProblemGraphQL2020}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/code/n+1}
+  \caption{GraphQL N+1 Problem}
+  \label{f:GraphQL-N1-Problem}
+\end{figure}
+In the example above, the query against the schema would make a single call to
+the database to retrieve the first N students, and then for each of these N
+students it would make a separate query to the same database to fetch M friends
+details (N calls), hence N+1. Having introspection disabled is the right choice
+looking at a security perspective, and this project will help solve the downside
+of not having tools to help document the API and more.
 
 \section*{Methodology}
 \label{s:Methodology}
@@ -53,27 +67,40 @@ static generated website that renders the previously generated file in HTML
 format \citep{gagliardiDjangoRESTMeets2021}. NodeJS will be used as backend
 runtime for the backend to generate the documentation that will then be served
 to the frontend. The front end will use NextJS as a React framework to generate
-the static HTML files parsing previously generated markdowns. A JAMStack with
+the static HTML files parsing previously generated markdowns. A JAMstack with
 Headless CMS approach will be used throughout this project, with additional
 content outside the generation scope, being decoupled from the whole versioning
 control and being fetched on build time through API queries
-\citep{zammettiWhatJAMstackAll2020}. A Kanban board will be used to maximise
-efficiency and visualise the workload and limit the WIP of the project. Kanban
-has been chosen over Scrum as it is more flexible and does not require
-ceremonies to be run daily as standups. Also, Scrum is overkill for a team of
-one developer as it would take much time lost on stories refinements, pointing,
-spikes and creating on epics and managing them over different sprints
-\citep{zayatFrameworkStudyAgile2020}. On the other hand, Kanban will focus much
-more on delivery and is more suited for a small team or even an individual
-developer. The programming language will be JavaScript for the PoC that will
-then be refactored in TypeScript to make the development process more efficient
-with its powerful type system saving developer time \citep{
-freemanUnderstandingTypeScript2021}. The architecture will be managed with
-popular tools such as GitHub for versioning control and single source of truth
-for input files, CircleCI for continuous integration, Vercel for deployment and
-hosting. To increase package flexibility, the project will also be containerised
-building an image through Docker that can run on AWS services such ECS or EC2
-\citep{pratapyadavFormalApproachDocker2021}.
+\citep{zammettiWhatJAMstackAll2020}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/jackstack}
+  \caption{JAMstack breakdown \citep{freecodecampWhatJAMstackHow2020}}
+  \label{f:jackstack}
+\end{figure}
+A Kanban board will be used to maximise efficiency and visualise the workload
+and limit the WIP of the project. Kanban has been chosen over Scrum as it is
+more flexible and does not require ceremonies to be run daily as standups. Also,
+Scrum is overkill for a team of one developer as it would take much time lost on
+stories refinements, pointing, spikes and creating on epics and managing them
+over different sprints \citep{zayatFrameworkStudyAgile2020}. On the other hand,
+Kanban will focus much more on delivery and is more suited for a small team or
+even an individual developer.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/agile}
+  \caption{Scrum vs Kanban \citep{theagilehelpScrumVsKanban2020}}
+  \label{f:agile}
+\end{figure}
+The programming language will be JavaScript for
+the PoC that will then be refactored in TypeScript to make the development
+process more efficient with its powerful type system saving developer time
+\citep{freemanUnderstandingTypeScript2021}. The architecture will be managed
+with popular tools such as GitHub for versioning control and single source of
+truth for input files, CircleCI for continuous integration, Vercel for
+deployment and hosting. To increase package flexibility, the project will also
+be containerised building an image through Docker that can run on AWS services
+such ECS or EC2 \citep{pratapyadavFormalApproachDocker2021}.
 
 \section*{Evaluation}
 \label{s:Evaluation}
@@ -95,6 +122,10 @@ evaluated as successful if the OKRs reaches green metrics and the final project
 complies with the specifications that have been set
 \citep{helmoldLeanManagementKPI2020}. The final product will generate a
 structured folder with markdown files that document the references of a GraphQL
-schema and being rendered with a JAMStack philosophy.
-
-
+schema and being rendered with a JAMstack philosophy.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/architecture}
+  \caption{High level Architecture}
+  \label{f:architecture}
+\end{figure}
