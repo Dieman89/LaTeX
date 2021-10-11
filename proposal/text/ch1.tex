@@ -2,23 +2,25 @@
 \label{s:Introduction}
 API documentation is an essential part of the software development process, it
 improves the dev experience and makes it easier to integrate, improves
-maintainability and easily enables versioning with indication on deprecated
-fields \citep{fanWhyAPIDocumentation2021}. Working with API documentation is not
-always straightforward, especially when working with gateway and federation, as
-it would require much effort from all the developers involved in the process.
-Swagger makes documentation for REST-APIs very straightforward, as it
-automatically generates HTML based visualisation and interaction out of the box
-for any consumer of the API \citep{korenExploitationOpenAPIDocumentation2018}.
-Since Facebook released GraphQL to the mass in 2015, many individual developers
-and companies are switching and converting to it to build their APIs, as it
-enables them to have a much more flexible and efficient way of building their
-APIs \citep{britoRESTVsGraphQL2020}. GraphQL gives to the consumer only the data
-that he needs, solving the overfetching and underfetching problem related to the
+maintainability and conveniently enables versioning with indication on
+deprecated fields \citep{fanWhyAPIDocumentation2021}. Working with API
+documentation is not always straightforward, especially when working with
+gateway and federation, as it would require much effort from all the developers
+involved in the process. Swagger makes documentation for REST-APIs very
+straightforward, as it automatically generates HTML based visualisation and
+interaction out of the box for any consumer of the API
+\citep{korenExploitationOpenAPIDocumentation2018}. Since Facebook released
+GraphQL to the mass in 2015, many individual developers and companies are
+switching and converting to it to build their APIs, as it enables them to have a
+much more flexible and efficient way of building their APIs
+\citep{britoRESTVsGraphQL2020}. GraphQL gives to the consumer only the data that
+he needs, solving the overfetching and underfetching problem related to the
 traditional REST-APIs \citep{witternGeneratingGraphQLWrappersREST2018}. Querying
 the API the way users want enables flexibility but can also threaten security if
-not appropriately handled. This project aims to enable API producers to build secure
-GraphQL APIs without reachable introspection on the endpoint while still
+not appropriately handled. This project aims to enable API producers to build
+secure GraphQL APIs without reachable introspection on the endpoint while still
 counting on a tool that can generate framework-agnostic structured documentation.
+
 
 
 \section*{Problem Domain}
@@ -40,11 +42,10 @@ meant to add, edit or delete specific data on the database, making it a real
 threat. Many other security issues are linked to the activation of the
 introspection and misconfiguration; some are information disclosure, insecure
 direct object references and inexistent ACL \citep{
-yeswehackHowExploitGraphQL2021}.
-By design, GraphQL has a fetching inefficiency known as \textit{N+1 Problem}
-where amount of queries executed against the database (or other upstream
-services) can be as large as the amount of nodes in the resulting graph \citep{
-graphqlbypopSuppressingProblemGraphQL2020}.
+yeswehackHowExploitGraphQL2021}. By design, GraphQL has a fetching inefficiency
+known as \textit{N+1 Problem} where amount of queries executed against the
+database (or other upstream services) can be as large as the amount of nodes in
+the resulting graph \citep{ graphqlbypopSuppressingProblemGraphQL2020}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/code/n+1}
@@ -70,7 +71,7 @@ to the frontend. The frontend will use NextJS as a React framework to generate
 the static HTML files parsing previously generated markdowns. A JAMstack with
 Headless CMS approach will be used throughout this project, with additional
 content outside the generation scope, being decoupled from the whole versioning
-control and being fetched on build time through API queries
+control and being fetched on build time through API queries.
 \citep{zammettiWhatJAMstackAll2020}.
 \begin{figure}[H]
   \centering
@@ -82,8 +83,8 @@ A Kanban board will be used to maximise efficiency and visualise the workload
 and limit the WIP of the project. Kanban has been chosen over Scrum as it is
 more flexible and does not require ceremonies to be run daily as standups. Also,
 Scrum is overkill for a team of one developer as it would take much time lost on
-stories refinements, pointing, spikes and creating on epics and managing them
-over different sprints \citep{zayatFrameworkStudyAgile2020}. On the other hand,
+stories, refinements, pointing, spikes and epics while also managing them over
+different sprints \citep{zayatFrameworkStudyAgile2020}. On the other hand,
 Kanban will focus much more on delivery and is more suited for a small team or
 even an individual developer.
 \begin{figure}[ht]
@@ -92,9 +93,9 @@ even an individual developer.
   \caption{Scrum vs Kanban \citep{theagilehelpScrumVsKanban2020}}
   \label{f:agile}
 \end{figure}
-The programming language will be JavaScript for
-the PoC that will then be refactored in TypeScript to make the development
-process more efficient with its powerful type system saving developer time
+The programming language will be JavaScript for the PoC that will then be
+refactored in TypeScript to make the development process more efficient with its
+powerful type system saving developer time
 \citep{freemanUnderstandingTypeScript2021}. The architecture will be managed
 with popular tools such as GitHub for versioning control and single source of
 truth for input files, CircleCI for continuous integration, Vercel for
