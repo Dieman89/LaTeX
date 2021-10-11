@@ -15,13 +15,18 @@ switching and converting to it to build their APIs, as it enables them to have a
 much more flexible and efficient way of building their APIs
 \citep{britoRESTVsGraphQL2020}. GraphQL gives to the consumer only the data that
 he needs, solving the overfetching and underfetching problem related to the
-traditional REST-APIs \citep{witternGeneratingGraphQLWrappersREST2018}. Querying
-the API the way users want enables flexibility but can also threaten security if
-not appropriately handled. This project aims to enable API producers to build
-secure GraphQL APIs without reachable introspection on the endpoint while still
-counting on a tool that can generate framework-agnostic structured documentation.
-
-
+traditional REST-APIs \citep{witternGeneratingGraphQLWrappersREST2018}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/restvsgraph}
+  \caption{Rest API vs GraphQL API}
+  \label{f:restvsgraph}
+\end{figure}
+Querying the API the way users want enables flexibility but can also threaten
+security if not appropriately handled. This project aims to enable API producers
+to build secure GraphQL APIs without reachable introspection on the endpoint
+while still counting on a tool that can generate framework-agnostic structured
+documentation.
 
 \section*{Problem Domain}
 \label{s:Problem-Domain}
@@ -75,9 +80,9 @@ control and being fetched on build time through API queries.
 \citep{zammettiWhatJAMstackAll2020}.
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{figures/jackstack}
+  \includegraphics[width=0.5\textwidth]{figures/jamstack}
   \caption{JAMstack breakdown \citep{freecodecampWhatJAMstackHow2020}}
-  \label{f:jackstack}
+  \label{f:jamstack}
 \end{figure}
 A Kanban board will be used to maximise efficiency and visualise the workload
 and limit the WIP of the project. Kanban has been chosen over Scrum as it is
@@ -87,7 +92,7 @@ stories, refinements, pointing, spikes and epics while also managing them over
 different sprints \citep{zayatFrameworkStudyAgile2020}. On the other hand,
 Kanban will focus much more on delivery and is more suited for a small team or
 even an individual developer.
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/agile}
   \caption{Scrum vs Kanban \citep{theagilehelpScrumVsKanban2020}}
