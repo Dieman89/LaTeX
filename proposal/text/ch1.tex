@@ -30,27 +30,28 @@ documentation.
 
 \section*{Problem Domain}
 \label{s:Problem-Domain}
-When working on such a problem, there are many different complications as having
-updated documentation for GraphQL APIs, one of them - and probably the most
-important - being security. Introspection enables users to query a GraphQL API
-and discover its schema structure, giving bad actors a chance to discover
-potentially malicious operations \citep{khalilWhyYouShould2021} quickly and
-disrupt the availability of the API. However, it is also a requirement for tools
-such as \textit{GraphiQL} and \textit{Playground}. This is a severe dilemma for
-producers who want to keep their APIs as secure as possible, away from
-indiscreet eyes, and open to potential threats but still have documentation
-tooling. If the attackers have access to the whole schema through introspection,
-it will be effortless to find and exploit API calls meant for internal use and
-debugging purposes \citep{rizwanGraphQLCommonVulnerabilities2021}. Through the
-same technique, the attackers could also get access to mutations and API calls
-meant to add, edit or delete specific data on the database, making it a real
-threat. Many other security issues are linked to the activation of the
-introspection and misconfiguration; some are information disclosure, insecure
-direct object references and inexistent ACL \citep{
-yeswehackHowExploitGraphQL2021}. By design, GraphQL has a fetching inefficiency
-known as \textit{N+1 Problem} where amount of queries executed against the
-database (or other upstream services) can be as large as the amount of nodes in
-the resulting graph \citep{ graphqlbypopSuppressingProblemGraphQL2020}.
+When working on such a problem, there are many different complications in
+keeping a constantly automated and updated documentation for GraphQL APIs, one
+of them --- and probably the most important --- being security. Introspection
+enables users to query a GraphQL API and discover its schema structure, giving
+bad actors a chance to discover potentially malicious operations
+\citep{khalilWhyYouShould2021} quickly and disrupt the availability of the API.
+However, it is also a requirement for tools such as \textit{GraphiQL} and
+\textit{Playground}. This is a severe dilemma for producers who want to keep
+their APIs as secure as possible, away from indiscreet eyes, and closed to
+potential threats but still have documentation tooling. If the attackers have
+access to the whole schema through introspection, it will be effortless to find
+and exploit API calls meant for internal use and debugging purposes
+\citep{rizwanGraphQLCommonVulnerabilities2021}. Through the same technique, the
+attackers could also get access to mutations and API calls meant to add, edit or
+delete specific data on the database, making it a real threat. Many other
+security issues are linked to the activation of the introspection and
+misconfiguration; some are information disclosure, insecure direct object
+references and inexistent ACL \citep{ yeswehackHowExploitGraphQL2021}. By design,
+GraphQL has a fetching inefficiency known as \textit{N+1 Problem} where amount
+of queries executed against the database (or other upstream services) can be as
+large as the amount of nodes in the resulting graph \citep{
+graphqlbypopSuppressingProblemGraphQL2020}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{figures/code/n+1}
