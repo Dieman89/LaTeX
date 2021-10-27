@@ -40,7 +40,7 @@ operations \citep{khalilWhyYouShould2021} quickly and disrupt the availability
 of the API. However, it is also a requirement for tools such as
 \textit{GraphiQL} and \textit{Playground}. This is a severe dilemma for
 producers who want to keep their APIs as secure as possible, away from
-indiscreet eyes, and closed to potential threats but still, have documentation
+indiscreet eyes, and closed to potential threats but still have documentation
 tooling. If the attackers have access to the whole schema through introspection,
 it will be effortless to find and exploit API calls meant for internal use and
 debugging purposes \citep{rizwanGraphQLCommonVulnerabilities2021}. Through the
@@ -48,7 +48,7 @@ same technique, the attackers could also get access to mutations and API calls
 intended to add, edit or delete specific data on the database, making it a real
 threat. Many other security issues are linked to the activation of the
 introspection and misconfiguration; some are information disclosure, insecure
-direct object references and inexistent Access Control List (ACL) \citep{
+direct object references, and inexistent Access Control List (ACL) \citep{
 yeswehackHowExploitGraphQL2021}. By design, GraphQL has a fetching inefficiency
 known as \textit{N+1 Problem} where the number of queries executed against the
 database (or other upstream services) can be as large as the number of nodes in
@@ -132,6 +132,6 @@ schema and are rendered with a JAMstack philosophy.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/architecture}
-  \caption{High Level Architecture}
+  \caption{High-Level Architecture}
   \label{f:architecture}
 \end{figure}
