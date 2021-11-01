@@ -1,1 +1,290 @@
-Where all week 4 stuff will go
+
+\section{Task 1}
+\label{lab4-task1}
+
+Below a table with the CWE top 25 weaknesses in the 2021.
+\begin{table}[H]
+  \begin{center}
+    \label{tab:lab4-table1}
+    \begin{tabular}{c c c}
+      \toprule
+      \textbf{Number} & \textbf{ID} & \textbf{Description} \\
+      \midrule
+      1 & CWE-787 & Out-of-bounds Write\\
+      2 & CWE-79 & Cross-site Scripting\\
+      3 & CWE-125 & Out-of-bounds Read\\
+      4 & CWE-20 & Improper Input Validation\\
+      5 & CWE-78 & OS Command Injection\\
+      6 & CWE-89 & SQL Injection\\
+      7 & CWE-416 & Use After Free\\
+      8 & CWE-22 & Path Traversal\\
+      9 & CWE-352 & Cross-Site Request Forgery\\
+      10 & CWE-434 & Unrestricted Upload of File\\
+      11 & CWE-306 & Missing Authentication\\
+      12 & CWE-190 & Integer Overflow\\
+      13 & CWE-502 & Deserialization of Untrusted Data\\
+      14 & CWE-287 & Improper Authentication\\
+      15 & CWE-476 & NULL Pointer Dereference\\
+      16 & CWE-798 & Use of Hard-coded Credentials\\
+      17 & CWE-119 & Memory Buffer\\
+      18 & CWE-862 & Missing Authorization\\
+      19 & CWE-276 & Incorrect Default Permissions\\
+      20 & CWE-200 & Exposure of Sensitive Information\\
+      21 & CWE-904 & Insufficient Logging and Monitoring\\
+      22 & CWE-908 & Insufficient Session Management\\
+      23 & CWE-912 & Insufficient Encryption\\
+      24 & CWE-913 & Insufficient Cryptographic Strength\\
+      25 & CWE-914 & Insufficient Cryptographic Protection\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\subsection{CWE-787: Out-of-bounds Write}
+\label{sec:lab4-cwe787}
+The table below shows the relationship between the subject CWE-787 and its
+relevant weaknesses.
+
+\begin{table}[H]
+  \begin{center}
+    \label{tab:lab4-table2}
+    \begin{tabular}{c c c c}
+      \toprule
+      \textbf{Nature} & \textbf{Type} & \textbf{ID} & \textbf{Name} \\
+      \midrule
+      ChildOf & Class & CWE-119 & Improper Restriction of Operations\\
+      ParentOf & Variant & CWE-121 & Stack-base Buffer Overflow\\
+      ParentOf & Variant & CWE-122 & Heap-base Buffer Overflow\\
+      ParentOf & Base & CWE-123 & Write-what-where Condition\\
+      ParentOf & Base & CWE-124 & Buffer Underflow\\
+      CanFollow & Base & CWE-822 & Untrusted Pointer Dereference\\
+      CanFollow & Base & CWE-823 & Use of Out-of-range Pointer\\
+      CanFollow & Base & CWE-824 & Access of Uninitialized Pointer\\
+      CanFollow & Base & CWE-825 & Expired Pointer Dereference\\
+      MemberOf & Category & CWE-1218 & Memory Buffer Errors\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+The integrity and availability are the most common consequences of the
+exploitation as the technical impact might be modified memory, DoS and execution
+of unauthorised code and commands. Below is a list with related CVE's and their
+description.
+
+\begin{description}[align=left]
+  \item [CVE-2020-0022] chain: mobile phone Bluetooth implementation does not
+  include offset when calculating packet length
+  \item [CVE-2009-1010] chain: compiler optimisation removes or modifies code
+  used to detect integer overflow
+  \item [CVE-2009-0269] chain: -1 value from a function call was intended to
+  indicate an error, but is used as an array index instead.
+  \item [CVE-2002-4268] chain: integer signedness error passes signed
+  comparison, leading to heap overflow.
+\end{description}
+
+Some of the potential mitigation can be separated into different sections.
+
+\begin{description}[align=left]
+  \item [Requirements] picking a language that does not produce this
+  vulnerability is the easiest mitigation that can be applied, for example
+  picking a language that have their own memory management such as Scala or C++
+  means that are not subject to buffer overflows.
+  \item [Build and Compilation] execute the source code using a protection
+  mechanism that eliminates buffer overflows.
+  \item [Implementation] adhere to a specific set of strict rules when
+  allocating or managing the memory.
+  \item [Operation] execute the source code using a feature that randomly
+  arrange the position of the software executable and libraries in the memory.
+\end{description}
+
+Additionally, to detect these weaknesses, an automated static or dynamic
+analysis tools could be placed.
+
+\subsection{CWE-79: Cross-site Scripting}
+\label{sec:lab4-cwe79}
+The table below shows the relationship between the subject CWE-79 and its
+relevant weaknesses.
+
+\begin{table}[H]
+  \begin{center}
+    \label{tab:lab4-table3}
+    \begin{tabular}{c c c c}
+      \toprule
+      \textbf{Nature} & \textbf{Type} & \textbf{ID} & \textbf{Name} \\
+      \midrule
+      ChildOf & Class & CWE-4 & Injection\\
+      ParentOf & Variant & CWE-80 & Basic XSS\\
+      ParentOf & Variant & CWE-81 & Neutralization of Script in an Error\\
+      ParentOf & Variant & CWE-83 & Neutralization of Script in Attributes\\
+      ParentOf & Variant & CWE-84 & Neutralization of Encoded URI\\
+      ParentOf & Variant & CWE-85 & Doubled Character XSS Manipulations\\
+      ParentOf & Variant & CWE-86 & Neutralization of Invalid Characters\\
+      ParentOf & Variant & CWE-87 & Neutralization of Alternate XSS\\
+      ParentOf & Chain & CWE-692 & Denylist to Cross-Site Scripting\\
+      PeerOf & Composite & CWE-494 & Code Without Integrity Check\\
+      CanFollow & Variant & CWE-113 & Neutralization of CRLF Sequences\\
+      CanFollow & Base & CWE-184 & List of Disallowed Inputs\\
+      CanPrecede & Base & CWE-494 & Code Without Integrity Check\\
+      MemberOf & Category & CWE-137 & Data Neutralization Issues\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+The CIA triad is all affected as the attacker will craft a client-side script
+that is then parsed by a browser that performs some activities. The script will
+then be loaded and run by every user on the website, and since the hand has
+access to cookies, also the attacker does. The XSS script can also run arbitrary
+code if combined with other vulnerabilities. Additionally, the attacker could
+also use obfuscation techniques to hide the script. Below is a list with related
+CVE's and their description.
+
+\begin{description}[align=left]
+  \item [CVE-2014-8958] the Admin GUI allows XSS through cookies.
+  \item [CVE-2017-9764] allows XSS through HTTP header.
+  \item [CVE-2014-5198] allows XSS through HTTP Referer header.
+  \item [CVE-2008-5770] reflected XSS using the PATH info in an URL.
+  \item [CVE-2008-4730] reflected XSS not properly handled.
+  \item [CVE-2008-5734] reflected XSS sent through email message.
+  \item [CVE-2008-0971] stored XSS in a security product.
+  \item [CVE-2008-5249] stored XSS using a wiki page.
+  \item [CVE-2006-3568] stored XSS in a guestbook application.
+\end{description}
+
+Some of the potential mitigation can be separated into different sections.
+
+\begin{description}[align=left]
+  \item [Architecture] use a frontend library that does not allow XSS.
+  \item [Implementation] use the appropriate encoding on all non-alphanumeric
+  characters.
+  \item [Implementation] adhere to a specific set of strict rules when
+  allocating or managing the memory.
+  \item [Operation] execute the source code using a feature that randomly
+  arrange the position of the software executable and libraries in the memory.
+\end{description}
+
+Additionally, to detect these weaknesses, an automated static and the use of a
+Black Box tests on a CI step. To automatically find a fix vulnerabilities on a
+CI step, Snyk.io would be very valuable and efficient when building web services
+on both frontend and backend, and can be placed used as an action or orb in the
+continuous-integration pipeline.
+
+\subsection{CWE-125: Out-of-bounds Read}
+\label{sec:lab4-cwe125}
+The table below shows the relationship between the subject CWE-125 and its
+relevant weaknesses.
+
+\begin{table}[H]
+  \begin{center}
+    \label{tab:lab4-table4}
+    \begin{tabular}{c c c c}
+      \toprule
+      \textbf{Nature} & \textbf{Type} & \textbf{ID} & \textbf{Name} \\
+      \midrule
+      ChildOf & Class & CWE-119 & Improper Restriction of Operations\\
+      ParentOf & Variant & CWE-126 & Buffer Over-read\\
+      ParentOf & Variant & CWE-127 & Buffer Under-read\\
+      CanFollow & Base & CWE-822 & Untrusted Pointer Dereference\\
+      CanFollow & Base & CWE-823 & Use of Out-of-range Pointer Offset\\
+      CanFollow & Base & CWE-824 & Access of Uninitialized Pointer\\
+      CanFollow & Base & CWE-825 & Expired Pointer Dereference\\
+      MemberOf & Category & CWE-1218 & Memory Buffer Errors\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+In this instance, confidentiality is the only affected aspect, and it is
+compromised by reading out-of-bounds memory that would give access to personal
+information to the attacker.
+
+\begin{description}[align=left]
+  \item [CVE-2014-0160] chain: 'Hearthbleed' bug receives an incosistent
+  length paramenter enabling an out-of-bounds read.
+  \item [CVE-2009-2523] chain: product does not handle when an input string is
+  not NULL terminated.
+  \item [CVE-2004-0112] out-of-bounds read due to miproper length check.
+  \item [CVE-2004-0183] packet with large number of specified elements cause
+  out-of-bounds read.
+  \item [CVE-2004-0184] out-of-bounds read, resultant from integer underflow.
+  \item [CVE-2004-1940] large length value caused out-of-bounds read.
+\end{description}
+
+Some of the potential mitigation can be separated into different sections.
+
+\begin{description}[align=left]
+  \item [Implementation] assume all input is malicious, building and
+  engineering an acceptable validation strategy.
+  \item [Architecture] use a language that provides memory abstractions.
+\end{description}
+
+Since the only languages affected by this are C and C++, tools and dynamic
+reports could be used to detect such vulnerability before shipping code to
+production.
+
+\section{Task 2}
+\label{lab4-task2}
+
+\subsection{CA-8 Penetration Testing}
+\label{lab4-sub-1}
+
+Penetration testing is an assessment run on systems to pinpoint weak points that
+malicious actors can exploit and use. It can also be used to validate the
+resilience within specified constraints and is a practice that is usually
+conducted by an experienced team with a high level of knowledge, experience and
+skills on various thematic such as network, operating system and application
+security. An organisation usually use the results of a vulnerability analysis to
+then engage in penetration testing activities that will then be conducted after
+an agreement to the rules of engagement.
+
+\subsection{PE-18 Location of System Components}
+\label{lab4-sub-2}
+The position of the system components needs to comply with order to minimise
+damage from a defined physical and environmental hazards such as nature
+disasters, terrorism, vandalism and more. Additionally, organisations need to
+carefully appoint physical entry points to mitigate or minimise, unauthorised
+access to the building where the system components are available and its
+proximity, as the adversaries could use sniffers and microphones for espionage.
+
+\subsection{PE-3 Physical access control}
+\label{lab4-sub-3}
+The position of the system components needs to comply to minimise damage from
+defined physical and environmental hazards such as nature disasters, terrorism,
+vandalism and more. Additionally, organisations need to carefully appoint
+physical entry points to mitigate or minimise unauthorised access to the
+building where the system components are available and its proximity, as the
+adversaries could use sniffers and microphones for espionage.
+
+\subsection{SC-5 Denial-of-service Protection}
+\label{lab4-sub-4}
+The Denial of Service protection controls aim to prevent and control the effects
+of such attacks by adding a layer of security specifically crafted and setup by
+an organisation. In the modern days, organisations usually prevent the
+disruptions of availability on their services placing a powerful load balancer
+in front of their services that scales very highly or pay a combination of
+additional services such as AWS Shield coupled with CloudFront, Route 53 and WAF
+for the most up to date protection to these kind of attacks.
+
+\subsection{SI-10 Information Input Validation}
+\label{lab4-sub-5}
+
+This control checks if the system inputs have a valid syntax and semantics and
+verifies that the data is interpreted as per business logic. This is to avoid
+adversary attacks that could introduce and construct malicious commands that
+would result in wrong interpretation and output.
+
+\subsection{AT-2 Literacy Training And Awareness}
+\label{lab4-sub-6}
+Organisations will have to deliver basic and advanced training to their
+employees, including tests to measure the understanding and the general
+knowledge. The trainings are usually tailored based on the access level of each
+individual or group of employees. There must be communications and small
+training also based on recent changes such as important policies or changes
+organisation security.
+
+\section{Conclusion}
+\label{lab4-conclusion}
+This lab needed a lot of research and writing to complete but it was a nice
+exploration. It helped me understand the relationship between vulnerabilities,
+their impact and analyse each of them in detail with mitigation in mind.
