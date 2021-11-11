@@ -1,0 +1,205 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=1.1in,bottom=1in,left=0.75in,right=0.75in]{geometry}
+\usepackage{tikz}
+\usepackage{calc}
+\usetikzlibrary{calc}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\definecolor{MyGray1}{RGB}{128,128,128}
+
+\newcommand{\ulfrule}{\xleaders\hbox{\underline{ }}\hfill\kern0pt}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\linespread{2}
+
+\usepackage{lastpage}
+\usepackage{sectsty}
+\sectionfont{\fontsize{16}{18}\selectfont}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\fancyhead[C]{%
+\begin{tikzpicture}[overlay, remember picture]%
+    \fill[black] ($(current page.north west)+(2in,-0.45in)$) rectangle ($(current page.north east)+(-2in,-0.8in)$);
+    \draw[black,thick] ($(current page.north west)+(0.5in,-1.3in)$) -- ($(current page.north east)+(-0.5in,-1.3in)$) -- ($(current page.south east)+(-0.5in,1.1in)$) -- ($(current page.south west)+(0.5in,1.1in)$) -- ($(current page.north west)+(0.5in,-1.3in)$);
+    \node[text=white] at ($(current page.north)+(0in,-0.67in)$) {\fontsize{13}{14}\selectfont\textbf{RESTRICTED  (when complete)}};
+    \node[anchor=north east, text=black] at ($(current page.north east)+(-0.35in,-0.35in)$) {\fontsize{10}{12}\selectfont\bf MG 11 (CONT)};
+    \node[anchor=north east, text=black] at ($(current page.north east)+(-0.5in,-0.8in)$) {\fontsize{10}{12}\selectfont\bf Page No.  \thepage\ of \pageref{LastPage}};
+    \node[anchor=north west, text=black] at ($(current page.north west)+(0.5in,-1.05in)$) {\fontsize{11}{12}\selectfont\bf Continuation of Statement of  Firstname SURNAME};
+\end{tikzpicture}
+}
+
+\fancyfoot[C]{%
+\begin{tikzpicture}[overlay, remember picture]%
+    \fill[black] ($(current page.south west)+(2in,0.3in)$) rectangle ($(current page.south east)+(-2in,0.65in)$);
+    \node[text=white] at ($(current page.south)+(0in,0.43in)$) {\fontsize{13}{14}\selectfont\textbf{RESTRICTED  (when complete)}};
+    \node[anchor=south west, text=black] at ($(current page.south west)+(0.8in,1.2in)$) {\fontsize{10}{12}\selectfont Signature: \quad \fontsize{8}{10}\selectfont Type Yourname};
+    \draw[black,thick,dotted] ($(current page.south west)+(1.55in,1.22in)$) -- ($(current page.south west)+(3.87in,1.22in)$);
+    \node[anchor=south west, text=black] at ($(current page.south west)+(3.95in,1.2in)$) {\fontsize{10}{12}\selectfont Signature witnessed by: \quad \fontsize{6}{8}\selectfont Not Required for Professional Witnesses};
+    \draw[black,thick,dotted] ($(current page.south east)+(-2.7in,1.22in)$) -- ($(current page.south east)+(-0.67in,1.22in)$);
+    \node[anchor=south east, text=MyGray1] at ($(current page.south east)+(-0.77in,0.43in)$) {\fontsize{11}{12}\selectfont CW/1/3};
+\end{tikzpicture}
+}
+
+
+
+
+
+
+\begin{document}
+%------------------------------------------
+%   First Page
+%------------------------------------------
+\thispagestyle{empty}
+
+\begin{tikzpicture}[overlay, remember picture]%
+    \fill[black] ($(current page.north west)+(2in,-0.3in)$) rectangle ($(current page.north east)+(-2in,-0.65in)$);
+    \draw[black,thick] ($(current page.north west)+(0.53in,-0.82in)$) -- ($(current page.north east)+(-0.53in,-0.82in)$) -- ($(current page.south east)+(-0.53in,1.1in)$) -- ($(current page.south west)+(0.53in,1.1in)$) -- ($(current page.north west)+(0.53in,-0.815in)$);
+    \node[text=white] at ($(current page.north)+(0in,-0.52in)$) {\fontsize{13}{14}\selectfont\textbf{RESTRICTED  (when complete)}};
+    \node[anchor=north east, text=black] at ($(current page.north east)+(-0.43in,-0.31in)$) {\fontsize{8}{10}\selectfont \textbf{Form MG 11}};
+    %
+    \draw[black,thick] ($(current page.north west)+(0.53in,-3.2in)$) -- ($(current page.north east)+(-0.53in,-3.2in)$);
+    \draw[black,thick] ($(current page.north west)+(0.53in,-4.7in)$) -- ($(current page.north east)+(-0.53in,-4.7in)$);
+\end{tikzpicture}
+
+\vspace{-3.5em}
+
+\begin{center}
+    \fontsize{16}{18}\selectfont \textbf{WITNESS STATEMENT}
+
+    \fontsize{10}{12}\selectfont CJ Act 1967, s.9; MC Act 1980, ss.5A(3) (a) and 5B; Criminal Procedure Rules 2020, Rule 16.2
+\end{center}
+
+\hfill \fontsize{10}{12}\selectfont \begin{tabular}{r|@{}p{0.4in}|@{}p{0.4in}|@{}p{0.8in}|@{}p{0.4in}|} \cline{2-5}
+URN & & & & \\ \cline{2-5}
+\end{tabular}
+
+\medskip
+
+Statement of: \underline{\makebox[0.85\textwidth][l]{Firstname SURNAME B.Sc(Hons) MBCS}}
+
+Age if under 18: \underline{\makebox[0.2\textwidth][l]{Over 18}}	{\fontsize{8}{10}\selectfont(if over 18 insert ‘over 18’)} \quad	Occupation:	\underline{\makebox[0.3\textwidth][l]{Digital Forensics Specialist}}
+
+\bigskip
+
+This statement (consisting of XXX pages each signed by me) is true to the best of my knowledge and belief and I make it knowing that, if it is tendered in evidence, I shall be liable to prosecution if I have wilfully stated in it, anything which I know to be false, or do not believe to be true.
+
+Signature: \underline{\makebox[0.5\textwidth][l]{\textbf{Type Yourname}}} \qquad Date: \underline{\makebox[0.3\textwidth][l]{XXX}}
+
+\bigskip\medskip
+
+Tick if witness evidence is visually recorded \quad \begin{tabular}{|@{}p{0.25in}|} \hline
+\\ \hline
+\end{tabular} \quad \textit{(supply witness details on rear)}
+
+
+\fontsize{11}{12}\selectfont
+
+\section*{Qualifications and Experience}
+\begin{enumerate}
+    \item I am employed as a Digital Forensics Specialist at Greenwich Police High Tech Forensics Unit. I have worked in the field of Computer Forensics since XXX. I have Bachelor of Science degree in XXX from the University of Greenwich. I have undertaken specialist training in Digital Forensics as part of my degree from the University of Greenwich.
+    \item I have performed various examinations for both law enforcement and commercial organisations.  I have previously given evidence in Court as an expert witness in relation to forensic computing cases.
+\end{enumerate}
+
+\section*{Background}
+\begin{enumerate}[resume]
+    \item This witness statement refers to actions I have undertaken during the examination of a forensic image supplied to me at the Greenwich Police High Tech Forensics Unit in the case referred to as Operation Blue 3.
+\end{enumerate}
+
+
+%------------------------------------------
+%   Second Page
+%------------------------------------------
+\newpage
+\newgeometry{top=1.5in,bottom=1.7in,left=0.75in,right=0.75in}
+\fontsize{11}{12}\selectfont
+
+\begin{enumerate}[resume]
+    \item This statement should be read in conjunction with that of my colleague, Mr. A. Aaron Adamson who is the imaging technician in this case.
+    \item The exhibit to which my examination refers is as follows: A forensic image file called ‘Operation Blue 3 - 2021.E01’, relating to exhibit ABL/1, a USB drive.
+    \item Following instructions from the investigating officer I have conducted an examination of the of the image file in order assist the investigation into alleged drugs offences.
+    \item My examination was conducted using sound forensic methodology, tools and practices. I have followed the ‘Good Practice Guide for Digital Evidence’ produced by the Association of Chief Police Officers (ACPO).
+    \item During my examination I recorded my actions and observations in my original notes. These notes provide more detailed technical aspects of the forensic image of the exhibit and the processes and tools that I used. They can be produced if required.
+\end{enumerate}
+
+\section*{Summary of Findings}
+\begin{enumerate}[resume]
+    \item There are XXX artefacts present on the exhibit that I examined that show…
+    \item There are XXX other artefacts present on the exhibit that I examined that show…
+    \item So on for major findings
+\end{enumerate}
+
+\section*{Detailed Findings for Exhibit ABC/1}
+\begin{enumerate}[resume]
+    \item The file ‘Operation Blue 3 - 2021.E01’ is the forensic image of the USB drive of exhibit ABL/1. For the remainder of the statement I will refer to my examination as being on exhibit ABL/1.
+    \item ABL/1 contains the XXX file system and is XXX in size. My examination shows that the last recorded use of the computer was on XXX.
+    \item Or for an operating system… The currently installed operating system is XXX with a recorded installation/update date of XXX. The registered owner is recorded as XXX and there is a single (1) user account present named XXX which has no/XXX password set for it.  My examination shows that the last recorded use of the computer was on XXX .
+\end{enumerate}
+
+\section*{Feel free to add or remove any of the artefact sections, or reorder them based upon your perception of their importance to the reader.}
+
+\section*{Documents and Notable Files}
+\begin{enumerate}[resume]
+    \item I searched ABL/1
+    \item Anything you want to talk about here.
+    \item I have included the notable files on the evidential extraction, \textbf{your initials/1.}
+\end{enumerate}
+
+\section*{Pictures and Video}
+\begin{enumerate}[resume]
+    \item Anything you want to talk about here.
+    \item I have included the notable pictures on the evidential extraction, \textbf{your initials/1.}
+\end{enumerate}
+
+\section*{Internet History}
+\begin{enumerate}[resume]
+    \item I have searched for the Internet history present on the exhibit. I note the following:
+    \item I have included the notable Internet history on the evidential extraction, \textbf{your initials/1.}
+\end{enumerate}
+
+\section*{Chat and Mobile Artefacts}
+\begin{enumerate}[resume]
+    \item I have searched for the Chat artefacts present on the exhibit. I note the following:
+    \item I have included the notable Internet history on the evidential extraction, \textbf{your initials/1.}
+\end{enumerate}
+
+\section*{Conclusions}
+\begin{enumerate}[resume]
+    \item I note that the picture artefact XXX has the date of XXX. This supports/undermines the information provided to me that states XXX….
+    \item I note that the file called XXX and the file called XXX had the following notable characteristic etc.
+    \item Give your opinion if it is necessary to give an opinion.
+\end{enumerate}
+
+\section*{Exhibit Production}
+\begin{enumerate}[resume]
+    \item As a result of my analysis I produce the following exhibit:
+
+    \begin{tabular}{lll}
+    \textbf{Exhibit} & \textbf{Bag Seal} & \textbf{Description of Exhibit} \\
+    \textbf{Your initials/1} & Unsealed & Evidential Extraction Document \\
+    \end{tabular}
+
+    \item I have attached to this statement the evidential extraction, exhibit your initials/1.
+\end{enumerate}
+
+\section*{Disclosure}
+\begin{enumerate}[resume]
+    \item I confirm that I have complied with my duties to record, retain and reveal material in accordance with the Criminal Procedure and Investigations Act 1996, as amended.
+    \item In the event my opinion changes on any material issue, I will inform the investigating officer as soon as reasonably practicable and give reasons.
+\end{enumerate}
+
+\section*{Duty to the Court}
+\begin{enumerate}[resume]
+    \item I declare that I understand that my duty, including providing written reports and giving evidence, is to assist the court and that this duty overrides any obligation to the party who has engaged me. I can confirm that I believe that I have complied with my duty.
+    \item I confirm that, to the best of my knowledge and belief, I have acted in accordance with the Code of Conduct published by the Forensic Science Regulator (Issue 4) in all aspects that relate to my personal conduct. Type Yourname at the very end to simulate signing after the last word
+\end{enumerate}
+
+Make a squiggly line so no-one can add words to your statement
+\end{document}
