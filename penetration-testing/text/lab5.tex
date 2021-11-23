@@ -8,7 +8,7 @@ Below there is a list of the tools used to perform the task.
 
 \begin{description}[align=left]
   \item [Tools Used]
-  \item [IDA Pro Hex Ray:] disassembler
+  \item [IDA:] disassembler
   \item [GDB version:] GNU Debugger
   \item [Python:] to write the exploit, key generator and more
   \item [PwnTools:] a python library for solving pwnable challenges from CTFs
@@ -45,7 +45,7 @@ application wants a valid license key to proceed.
 We need to know what it wants and give it to satisfy conditions required by the
 application for a valid license key. Since it is an executable, let's
 disassemble it and understand it in depth using static analysis. Opening the
-file in IDA Pro, we start from the main and see what functions it calls from
+file in IDA, we start from the main and see what functions it calls from
 there. Once IDA has disassembled and analysed the executable,we will look for
 the main function in the left navigator and click on it.
 
