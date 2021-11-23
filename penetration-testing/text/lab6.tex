@@ -28,9 +28,15 @@ conversion logic occurs in the calculator function.
 We can note that the string 'what is the amount you want to convert?
 \textbackslash n>' is the last print before asking for user input. Here the
 executable uses gets, which has no defences against buffer overflow
-vulnerabilities. Using trial and error to find the number of characters needed
-to overflow, the buffer is 1036 characters. Writing 1037 will cause the program
-to crash.
+vulnerabilities.
+First of all we need to enable core dumps on linux. Then we can run GDB.
+
+\begin{figure}[H] \centering
+\includegraphics[width=1\textwidth]{figures/enable-core-dumps}
+\caption{enable-core-dumps} \label{f:enable-core-dumps} \end{figure}
+
+Using trial and error to find the number of characters needed to overflow, the
+buffer is 1036 characters. Writing 1037 will cause the program to crash.
 
 \begin{figure}[H]
   \centering
@@ -39,8 +45,9 @@ to crash.
   \label{f:echo-python}
 \end{figure}
 
-The core is dumped, so let's have a look at it in GBD as we can triage this
+The core is dumped, so let's have a look at it in GDB as we can triage this
 crash.
+
 
 \begin{figure}[H]
   \centering
@@ -75,7 +82,7 @@ These are the steps we will take:
   \item Arrange an ROP chain to execute the system with ``/bin/sh'' to get
   a shell.
 \end{enumerate}
-\newpage
+
 To leak the address of \_\_libc\_start\_main, we can redirect execution to
 puts@plt and pass the Global Offset Table entry address for \_\_libc\_start\_main.
 The following scripts utilise pwntools to achieve this.
