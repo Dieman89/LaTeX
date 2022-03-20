@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatType Function tests should give a nice well formatted directive object 1`] = `
+Object {
+  "arguments": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "testArg",
+      "path": "/scalars/string",
+      "printed": "testArg: String = \\"Test argument\\"",
+      "type": "String",
+    },
+  ],
+  "description": "",
+  "directives": Array [],
+  "fields": Array [],
+  "name": "testDirective",
+  "path": null,
+  "printed": "directive @testDirective(testArg: String = \\"Test argument\\") on FIELD_DEFINITION",
+  "type": null,
+}
+`;
+
+exports[`formatType Function tests should give a nice well formatted enum object 1`] = `
+Object {
+  "arguments": Array [],
+  "description": "",
+  "directives": Array [],
+  "fields": Array [],
+  "name": "TestEnum",
+  "path": null,
+  "printed": "enum TestEnum {
+TEST1
+TEST2
+TEST3
+}",
+  "type": null,
+}
+`;
+
+exports[`formatType Function tests should give a nice well formatted input object 1`] = `
+Object {
+  "arguments": Array [],
+  "description": "",
+  "directives": Array [],
+  "fields": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "test",
+      "path": "/scalars/string",
+      "printed": "test: String",
+      "type": "String",
+    },
+  ],
+  "name": "TestInput",
+  "path": null,
+  "printed": "input TestInput {
+test: String
+}",
+  "type": null,
+}
+`;
+
+exports[`formatType Function tests should give a nice well formatted interface object 1`] = `
+Object {
+  "arguments": Array [],
+  "description": "",
+  "directives": Array [],
+  "fields": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "test",
+      "path": "/scalars/string",
+      "printed": "test: String",
+      "type": "String",
+    },
+  ],
+  "name": "TestInterface",
+  "path": null,
+  "printed": "interface TestInterface {
+test: String
+}",
+  "type": null,
+}
+`;
+
+exports[`formatType Function tests should give a nice well formatted mutation object field 1`] = `
+Object {
+  "arguments": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "testMutationArgument",
+      "path": "/inputs/test-input",
+      "printed": "testMutationArgument: TestInput",
+      "type": "TestInput",
+    },
+  ],
+  "description": "Test mutation description",
+  "directives": Array [],
+  "fields": Array [],
+  "name": "testMutation",
+  "path": "/scalars/string",
+  "printed": "testMutation(testMutationArgument: TestInput): String",
+  "type": "String",
+}
+`;
+
+exports[`formatType Function tests should give a nice well formatted query object field 1`] = `
+Object {
+  "arguments": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "testArgument",
+      "path": "/scalars/string",
+      "printed": "testArgument: String",
+      "type": "String",
+    },
+  ],
+  "description": "This is a test description",
+  "directives": Array [],
+  "fields": Array [],
+  "name": "testQueryRoot",
+  "path": "/scalars/string",
+  "printed": "testQueryRoot(testArgument: String): String",
+  "type": "String",
+}
+`;
+
+exports[`formatType Function tests should give a nice well formatted subscription object field 1`] = `
+Object {
+  "arguments": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "testSubscriptionArgument",
+      "path": "/inputs/test-input",
+      "printed": "testSubscriptionArgument: TestInput",
+      "type": "TestInput",
+    },
+  ],
+  "description": "Test subscription description",
+  "directives": Array [],
+  "fields": Array [],
+  "name": "testSubscription",
+  "path": "/scalars/string",
+  "printed": "testSubscription(testSubscriptionArgument: TestInput): String",
+  "type": "String",
+}
+`;
+
+exports[`formatType Function tests should provide the correct format from a GraphQL object type 1`] = `
+Object {
+  "arguments": Array [],
+  "description": "",
+  "directives": Array [],
+  "fields": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "aString",
+      "path": "/scalars/string",
+      "printed": "aString: String",
+      "type": "String",
+    },
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "aNonNullString",
+      "path": "/scalars/string",
+      "printed": "aNonNullString: String!",
+      "type": "String!",
+    },
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "aNumber",
+      "path": "/scalars/int",
+      "printed": "aNumber: Int",
+      "type": "Int",
+    },
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "aNestedType",
+      "path": "/objects/test-nested-type",
+      "printed": "aNestedType: TestNestedType!",
+      "type": "TestNestedType!",
+    },
+  ],
+  "name": "TestObject",
+  "path": null,
+  "printed": "type TestObject {
+aString: String
+aNonNullString: String!
+aNumber: Int
+aNestedType: TestNestedType!
+}",
+  "type": null,
+}
+`;
+
+exports[`formatType Function tests should provide the correct format from a GraphQL scalar type 1`] = `
+Object {
+  "arguments": Array [],
+  "description": "",
+  "directives": Array [],
+  "fields": Array [],
+  "name": "TestScalar",
+  "path": null,
+  "printed": "scalar TestScalar",
+  "type": null,
+}
+`;
+
+exports[`formatType Function tests should provide the correct format from a GraphQL union type 1`] = `
+Object {
+  "arguments": Array [],
+  "description": "",
+  "directives": Array [],
+  "fields": Array [],
+  "name": "TestUnion",
+  "path": null,
+  "printed": "union TestUnion = String | Int",
+  "type": null,
+}
+`;

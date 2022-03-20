@@ -17,3 +17,5 @@
 *.fdb_latexmk
 !library.bib
 .DS_Store
+node_modules
+__generated__

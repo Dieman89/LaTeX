@@ -1,0 +1,121 @@
+"""
+This is a query type
+"""
+type Query {
+  """
+  Description of accountById. Look how lovely
+  """
+  accountById(id: ID!): Account
+  accounts(first: Int, after: String): AccountConnection! @deprecated
+
+  customerProfileById(id: ID!): CustomerProfile
+  customerProfiles(first: Int, after: String): CustomerProfileConnection!
+}
+
+type Mutation {
+  test(message: TestInput): String
+}
+
+input TestInput {
+  id: String
+}
+
+type Subscription {
+  testSubscription(id: String): Account
+}
+
+type PageInfo {
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+}
+
+type Account {
+  id: ID!
+  """
+  Description
+  """
+  startFrom: AWSUnion
+  customerAccountRelationships(
+    first: Int
+    after: String
+  ): CustomerAccountRelationshipConnection!
+}
+
+type AccountConnection {
+  edges: [AccountEdge!]!
+  pageInfo: PageInfo!
+}
+
+type AccountEdge {
+  cursor: String!
+  node: Account!
+}
+
+type CustomerProfile {
+  id: ID!
+  emailAddress: AWSEmail
+  givenName: String! @deprecated
+  familyName: String!
+  birthdate: AWSDate
+  phoneNumbers: [String]!
+  address: Address
+  enabled: Boolean!
+  marketingPreferences: [MarketingPreference]!
+  specialCommPreferences: [String]
+  customerAccountRelationships(
+    first: Int
+    after: String
+  ): CustomerAccountRelationshipConnection!
+}
+
+type Address {
+  country: String!
+  address: String!
+}
+
+enum MarketingPreference {
+  Email
+  Post
+  SMS
+}
+
+type CustomerProfileConnection {
+  edges: [CustomerProfileEdge!]!
+  pageInfo: PageInfo!
+}
+
+type CustomerProfileEdge {
+  cursor: String!
+  node: CustomerProfile!
+}
+
+type CustomerAccountRelationship {
+  account: Account!
+  customerProfile: CustomerProfile!
+  isPrimaryCustomer: Boolean!
+  isFinanciallyLiable: Boolean!
+}
+
+type CustomerAccountRelationshipConnection {
+  edges: [CustomerAccountRelationshipEdge!]!
+  pageInfo: PageInfo!
+}
+
+type CustomerAccountRelationshipEdge {
+  cursor: String!
+  node: CustomerAccountRelationship!
+}
+
+directive @deprecated(
+  reason: String = "No longer supported"
+) on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | ENUM_VALUE
+
+scalar AWSDate
+scalar AWSDateTime
+scalar AWSEmail
+
+interface Something {
+  id: String
+}
+
+union AWSUnion = AWSDateTime | AWSDate

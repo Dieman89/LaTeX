@@ -1,0 +1,33 @@
+--- id:
+{{name}}
+title:
+{{name}}
+hide_title: true --- #{{name}}
+
+{{#if description}}
+  {{description}}
+{{/if}}
+```
+{{{printed}}}
+```
+{{#if fields}}
+  ## Fields
+  {{#each fields}}
+    `{{this.name}}`([`{{this.type}}`](/references{{this.path}}))
+    {{#if this.decription}}
+      {{this.description}}
+    {{/if}}
+  {{/each}}
+{{/if}}
+{{#if arguments}}
+  ## Arguments
+  {{#each arguments}}
+    `{{this.name}}`([`{{this.type}}`](/references{{this.path}}))
+    {{#if this.decription}}
+      {{this.description}}
+    {{/if}}
+  {{/each}}
+{{/if}}
+{{#if isRootType}}
+  ## Type [`{{type}}`](/references{{path}})
+{{/if}}

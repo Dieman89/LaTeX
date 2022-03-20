@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatSchema takes a GraphQLSchema and produces a correctly formatted object 1`] = `
+Object {
+  "directives": Array [
+    Object {
+      "arguments": Array [
+        Object {
+          "arguments": Array [],
+          "description": "Included when true.",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "if",
+          "path": "/scalars/boolean",
+          "printed": null,
+          "type": "Boolean!",
+        },
+      ],
+      "description": "Directs the executor to include this field or fragment only when the \`if\` argument is true.",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "include",
+      "path": null,
+      "printed": null,
+      "type": null,
+    },
+    Object {
+      "arguments": Array [
+        Object {
+          "arguments": Array [],
+          "description": "Skipped when true.",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "if",
+          "path": "/scalars/boolean",
+          "printed": null,
+          "type": "Boolean!",
+        },
+      ],
+      "description": "Directs the executor to skip this field or fragment when the \`if\` argument is true.",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "skip",
+      "path": null,
+      "printed": null,
+      "type": null,
+    },
+    Object {
+      "arguments": Array [
+        Object {
+          "arguments": Array [],
+          "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted using the Markdown syntax, as specified by [CommonMark](https://commonmark.org/).",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "reason",
+          "path": "/scalars/string",
+          "printed": null,
+          "type": "String",
+        },
+      ],
+      "description": "Marks an element of a GraphQL schema as no longer supported.",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "deprecated",
+      "path": null,
+      "printed": null,
+      "type": null,
+    },
+    Object {
+      "arguments": Array [
+        Object {
+          "arguments": Array [],
+          "description": "The URL that specifies the behaviour of this scalar.",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "url",
+          "path": "/scalars/string",
+          "printed": null,
+          "type": "String!",
+        },
+      ],
+      "description": "Exposes a URL that specifies the behaviour of this scalar.",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "specifiedBy",
+      "path": null,
+      "printed": null,
+      "type": null,
+    },
+  ],
+  "enums": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "TestEnum",
+      "path": null,
+      "printed": "enum TestEnum {
+TEST1
+TEST2
+}",
+      "type": null,
+    },
+  ],
+  "inputs": Array [
+    Object {
+      "arguments": Array [],
+      "description": "Test input description",
+      "directives": Array [],
+      "fields": Array [
+        Object {
+          "arguments": Array [],
+          "description": "Test input field description",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "id",
+          "path": "/scalars/string",
+          "printed": "id: String",
+          "type": "String",
+        },
+      ],
+      "name": "TestInput",
+      "path": null,
+      "printed": "input TestInput {
+id: String
+}",
+      "type": null,
+    },
+  ],
+  "interfaces": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [
+        Object {
+          "arguments": Array [],
+          "description": "",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "id",
+          "path": "/scalars/string",
+          "printed": "id: String",
+          "type": "String",
+        },
+      ],
+      "name": "TestInterface",
+      "path": null,
+      "printed": "interface TestInterface {
+id: String
+}",
+      "type": null,
+    },
+  ],
+  "mutations": Array [
+    Object {
+      "arguments": Array [
+        Object {
+          "arguments": Array [],
+          "description": "",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "testInput",
+          "path": "/inputs/test-input",
+          "printed": "testInput: TestInput",
+          "type": "TestInput",
+        },
+      ],
+      "description": "Test mutation field description",
+      "directives": Array [],
+      "fields": Array [],
+      "isRootField": true,
+      "name": "testMutationField",
+      "path": "/objects/test-object",
+      "printed": "testMutationField(testInput: TestInput): TestObject",
+      "type": "TestObject",
+    },
+  ],
+  "objects": Array [
+    Object {
+      "arguments": Array [],
+      "description": "Test object type description",
+      "directives": Array [],
+      "fields": Array [
+        Object {
+          "arguments": Array [],
+          "description": "Test id field description",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "testObjectField",
+          "path": "/scalars/string",
+          "printed": "testObjectField: String!",
+          "type": "String!",
+        },
+      ],
+      "name": "TestObject",
+      "path": null,
+      "printed": "type TestObject {
+testObjectField: String!
+}",
+      "type": null,
+    },
+  ],
+  "queries": Array [
+    Object {
+      "arguments": Array [
+        Object {
+          "arguments": Array [],
+          "description": "",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "testArgument",
+          "path": "/scalars/id",
+          "printed": "testArgument: ID!",
+          "type": "ID!",
+        },
+      ],
+      "description": "Test query field description",
+      "directives": Array [],
+      "fields": Array [],
+      "isRootField": true,
+      "name": "testQueryField",
+      "path": "/objects/test-object",
+      "printed": "testQueryField(testArgument: ID!): TestObject",
+      "type": "TestObject",
+    },
+  ],
+  "scalars": Array [
+    Object {
+      "arguments": Array [],
+      "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`\\"4\\"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "ID",
+      "path": null,
+      "printed": null,
+      "type": null,
+    },
+    Object {
+      "arguments": Array [],
+      "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "String",
+      "path": null,
+      "printed": null,
+      "type": null,
+    },
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "TestScalar",
+      "path": null,
+      "printed": "scalar TestScalar",
+      "type": null,
+    },
+    Object {
+      "arguments": Array [],
+      "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "Int",
+      "path": null,
+      "printed": null,
+      "type": null,
+    },
+    Object {
+      "arguments": Array [],
+      "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "Boolean",
+      "path": null,
+      "printed": null,
+      "type": null,
+    },
+  ],
+  "subscriptions": Array [
+    Object {
+      "arguments": Array [
+        Object {
+          "arguments": Array [],
+          "description": "",
+          "directives": Array [],
+          "fields": Array [],
+          "name": "testArgument",
+          "path": "/scalars/string",
+          "printed": "testArgument: String",
+          "type": "String",
+        },
+      ],
+      "description": "Test subscription field description",
+      "directives": Array [],
+      "fields": Array [],
+      "isRootField": true,
+      "name": "testSubscription",
+      "path": "/objects/test-object",
+      "printed": "testSubscription(testArgument: String): TestObject",
+      "type": "TestObject",
+    },
+  ],
+  "unions": Array [
+    Object {
+      "arguments": Array [],
+      "description": "",
+      "directives": Array [],
+      "fields": Array [],
+      "name": "TestUnion",
+      "path": null,
+      "printed": "union TestUnion = String | Int",
+      "type": null,
+    },
+  ],
+}
+`;
