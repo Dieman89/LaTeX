@@ -202,7 +202,89 @@ language. The template literals types will produce the same result shown and
 achieved in the JavaScript PoC, making it much more succinct, readable and
 powerful as the code will not be decoupled in different files and folders. It
 will also keep the code much more DRY with a single source of truth, which the
-language itself tries to doctrine.
+language itself tries to doctrine. The main reasons to migrate any project from
+JavaScript to TypeScript are listed below.
+
+\subsection{TypeScript Module Support}
+\label{ss:TypeScript-Module-Support}
+TypeScript supports modules, meaning that any classes, variables and functions
+can be exported and imported in other files using the keywords provided by the
+default API similarly to what is done in ECMAScript 2015. Any file containing
+import and export keywords will be considered as a module, and those without
+top-level declarations are considered scripts available globally. A perfect
+example can be seen in one of the types that are being exported in the
+refactored tool, in the image below.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/code/constants.png}
+  \caption{Constants File}
+  \label{f:ch5-refactored-constants-and-types}
+\end{figure}
+
+This file contains a set of strings used as keys in the larger object containing
+all the types and their formatted data. It is very convenient to have a bunch of
+constants and not have the names of the keys hardcoded directly in the object
+for both readability and convenience in case of later refactoring.
+
+\subsection{TypeScript Class Support}
+\label{ss:TypeScript-Class-Support}
+TypeScript is a superset of JavaScript, or even better an object oriented
+version of JavaScript. Even though TypeScript is considered object oriented
+programming, it also has and shares many common features with function
+programming languages. A class in TypeScript is a recipe to create objects, very
+similarly to any other object oriented programming languages that have also been
+covered at the University. This feature could be a very huge selling point to
+any developer used to Java as main backend language, so that it will be easy to
+switch from one language to another in case the company has two different
+languages in different codebases. In this project, there is a slightly different
+approach as a class has not been used and the methodology leans more towards
+a functional programming approach without the use of any functional programming
+libraries such as Lodash or fp-ts, to keep everything as simple as possible.
+
+\subsection{TypeScript Type Support}
+\label{ss:TypeScript-Type-Support}
+This is the main reason why TypeScript is a better choice than JavaScript, the
+type system. TypeScript is statically typed, maening that all checks are done
+at compile time, and not at runtime. The compiler will throw an error if variables
+and expressions do not match the type that is expected. This is all out of the box,
+for free, and right into any IDE of choice.
+The primitive types that TypeScript supports are: strings, boolean and numbers.
+On top of that, it also support a very special type called Union, which is a way
+to combined and build new types out of already defined or in-built types.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/code/union-types.png}
+  \caption{Union Types}
+  \label{f:ch5-refactored-union-types}
+\end{figure}
+
+In the image above, the Union type is used to combine some primitives such as
+string with a nullable type which is a special type which make the whole type
+nullable. Nulls and undefined are the two special types of TypeScript and are
+very annoying to deal with. Even their creator, Tony Hoare, realised it and
+admitted it was one of his biggest professional mistakes, or more specifically,
+his "billion dollar mistake".
+
+\subsection{Packet Manager}
+\label{ss:Packet-Manager}
+
+A package manager js used to manage any project dependencies in different ways.
+It allows the developers to execute operations such as deleting, updating or
+installing packages or running scripts. NPM stands for Node Package Manager, and
+it was created in 2010. NPM is composed of three main parts: a website for user
+experience regarding npm aspects, a registry where all the packages are
+installed and released for the user, and a CLI to perform an operation from the
+terminal. Yarn was created in 2016, and it immediately showed more extraordinary
+performance than npm. It allowed the creation of a .lock file that contained the
+list of the version installed for each dependency, allowing repository sharing
+improvements. The main difference between these two package managers is how they
+run operations. In fact, Yarn uses a parallel way by installing decencies at the
+same time while NPM installs one package at a time. This increases performance
+and speed on any kind of operation for the dependencies and is the main reason
+why Yarn is the preferred package manager in this project, but also in the rest
+of the world.
 
 \section{Frontend}
 \label{s:Frontend}
