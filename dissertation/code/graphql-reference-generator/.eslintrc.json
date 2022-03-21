@@ -2,5 +2,5 @@
   "env": {
     "jest/globals": true
   },
-  "extends": ["../.eslintrc.json", "plugin:jest/recommended"]
+  "extends": ["plugin:jest/recommended"]
 }

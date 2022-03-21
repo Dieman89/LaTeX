@@ -265,7 +265,98 @@ string with a nullable type which is a special type which make the whole type
 nullable. Nulls and undefined are the two special types of TypeScript and are
 very annoying to deal with. Even their creator, Tony Hoare, realised it and
 admitted it was one of his biggest professional mistakes, or more specifically,
-his "billion dollar mistake".
+his ``billion dollar mistake''. The GraphQLItem type shown in the image above,
+is a representation of the formatted object we previously used to represent data
+in the proof of concept section. Creating such a type is very simple and
+effective, meaning any value that the object takes, will need to adhere with the
+strict type rules provided, and nothing less. If the manipulation of data would
+result in a differenty kind of primitives or newly created type to be used and
+filled in the object, it will instantly be shown as an error in the IDE and will
+not compile.
+
+\subsection{TSConfig}
+\label{ss:TSConfig}
+To be able to use TypeScript in the project, it needs to be installed with
+\texttt{yarn install -d typescript}. It will add TypeScript to the
+\texttt{package.json}. Other packages like \texttt{ts-node, jest, eslint}
+needs to be installed for the project to compile and run. It will also add
+support for tests which will be shown in later chapters.
+On top of that, a new file named \texttt{tsconfig.json} needs to be created at the
+root of the TypeScript project which specified the root files and the options
+given to the compiler for when its time to compile. The options given in this
+project are the following listed in the image below, which is taken from the
+project itself.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/code/tsconfig.png}
+  \caption{TSConfig}
+  \label{f:ch5-refactored-tsconfig}
+\end{figure}
+
+The root object starts with \texttt{compilerOptions} which is an object itself
+that contains the options the compiler will read to compile and build the project.
+The \texttt{outDir} option is used to direct the files on a specific folder when
+the command \texttt{tsc} is given to build the project. It will take the
+TypeScript files, and convert them in JavaScript files in the destination folder
+which will look something like the folder structure shown in the picture below.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/code/outdir.png}
+  \caption{OutDir Option Result}
+  \label{f:ch5-refactored-outdir}
+\end{figure}
+
+The module option is to specify the module system that will be used in the
+project.The \texttt{target} option is used to specify the target version of
+JavaScript will be produced from a given piece of TypeScript code. In this case
+the project will use the most up to date version of ECMAScript (ES).The option
+\texttt{strict} is the most important and also interesting one as it is a little
+shortcut to enable many strict rules options, to be more specific seven, which
+they all make the code to have much more strict rules on type checking, which
+will be very good as stricter is synonym of better and safer. The seven options
+included in the strict shortcut are the following: \texttt{noImplicitAny},
+\texttt{noImplicitThis}, \texttt{alwaysStrict}, \texttt{strictBindCallApply},
+\texttt{strictNullChecks}, \texttt{strictFunctionTypes}, and
+\texttt{strictPropertyInitialization}.
+
+\newpage
+Below a deep explaination of the options being used in this project:
+\begin{itemize}
+  \item \texttt{noImplicitAny}: is probably the most important as it basically
+  forces the developers to the usage of TypeScript and won't allow JavaScript at
+  all costs. Any code written in JavaScript, for example omitting the type in a
+  parameter of a function, will return an error in the compiler and the IDE
+  itself. This is because, if no type is assigned, it will implicitly be
+  assigned to a type called any, hence the name of the option. It is not good
+  practice, but it is still possible to explicitly assign the any type to any
+  variable or parameters and make the compiler not complain about it.
+  \item \texttt{noImplicitThis}: is another option that is used to prevent
+  implicit this usage in TypeScript. This is a very good option to use as it
+  will prevent implicit this usage in TypeScript and will return an error in the
+  compiler and the IDE itself.
+  \item \texttt{alwaysStrict}: is used to imaginary place a \texttt{"use
+  strict"} statement on top of any and every compiled JavaScript file that will
+  be generated from TypeScript.
+  \item \texttt{strictBindCallApply}: is used to prevent a common loophole
+  that would make the type check not working in certain situations. This
+  certainly is not a good thing, so keeping this option enabled is reccomended
+  in any project.
+  \item \texttt{strictNullChecks}: is a good option to prevent variables
+  with inferred or explicitly types to be assigned as null or undefined.
+  \item \texttt{strictFunctionTypes}: is an option that could be a little
+  intimidating to explore and understand as it cover the world covariance and
+  contravariance, which are topics that are covered more in programming
+  languages such as Scala and are mostly used to build libraries as they are
+  quite advanced. For the purpose of this explaination, this option force the
+  function type parameter checks to be contravariant instead of bivariant and it
+  applies to all function types with the exception of the those that comes from
+  constructors and methods declaration.
+  \item \texttt{strictPropertyInitialization}: this is related to classes and
+  a member of a class needs to be initialised with a value in the declaration or
+  constructor, otherwise an error will be thrown.
+\end{itemize}
 
 \subsection{Packet Manager}
 \label{ss:Packet-Manager}
