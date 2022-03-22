@@ -1,7 +1,11 @@
+This section will cover various aspects of how I would improve the project coupled
+with my final reflection at the end of it.
+
 \section{Future Improvements}
 \label{s:Future-improvements}
-In this section, there will be discussions about future improvements that could be
-done in a future where time was not a constraint.
+When a project seems to finish, in reality is never really finished. In this
+section I will discuss some of the aspects that I would like to improve in the
+future.
 
 \subsection{Headless CMS}
 \label{s:Headless-CMS}
@@ -19,6 +23,17 @@ whole process not only create the base of a service that would run on a server
 continously but also reduce manual errors from developers that would then only
 focus on writing code rather than monitoring the behaviour of the service in
 production.
+
+\subsection{Snyk}
+\label{s:Snyk}
+Snyk is a security platform that is used to automatically and quickly detect and
+fix vulnerabilities in the codebase. It doesn not only scan the code, but also
+the dependencies and vulnerabilities that they might have in their relative
+source code. Meaning that it would secure an entire lifecycle of a project. It
+would be very much on point on having such a security tool but it is a paid
+product that would be pretty expensive to use for a student. The best thing
+about Snyk is that it also make sure that a containerised application is secure,
+and the infrastructure as code is not misconfugured in the cloud.
 
 \subsection{Terraform}
 \label{s:Terraform}
@@ -53,7 +68,17 @@ end users.
 \label{s:Pure-Functional-Programming}
 Probably a refactoring in another language that is more scalable and safe such
 as Scala with libraries such as Cats and Cats Effect would be a better choice
-and a safe bet for a tool used in production.
+and a safe bet for a tool used in production. Cats is a library that delivers
+abstraction for pure functional programming for Scala. Cats is a library that
+delivers abstraction for pure functional programming for Scala. Cats is short
+for Category, which, as the name would suggest, is short for Category Theory. It
+supports type classes such as Functors, Monoids, Bifunctors and Kleisi
+Categories. Even though there are many things to be learned and explored on such
+a complex library, it provides a lot of abstraction to extend existing libraries
+with new functionalities directly in the codebase, which is very powerful. Cats
+Effect on the other hand, it allows developers to write composable applications
+with performances in mind with powerful tools such as IO monads which make
+pieces of code effectful and composable.
 
 \section{Tool Used}
 \label{s:Tool-Used}
@@ -83,5 +108,40 @@ updated on each change (addition, removal, or change). This will export a nice
 
 \section{Reflection}
 \label{s:Reflection}
-This section will contain my reflection
 
+The main goal of having good generated documentation to start with is to save
+money and time. If a developer does not have to document a GraphQL API manually,
+each time their schema changes, it is an enormous save of resources and time
+that could be spent on developing the actual product rather than documenting it.
+Creating such a tool is very difficult without any GraphQL knowledge as the code
+goes very deep into every aspect of GraphQL, schema, evolutions and types.
+Moreover, if this product would have to be converted into a SaaS, it would
+require a secure transaction system, a fully working landing page with a login
+system, a database, and a dashboard to fulfil customer expectations on User
+Experience. It would require a whole team working together to achieve such a
+goal, but surely there would be demand, as many companies struggle with
+documentation. The main reason to write API documentation, in my opinion, is not
+only to help developers understand it but also mainly to raise the adoption of
+it. If a developer in a company creates an API that other teams could use, how
+does the developer raise awareness and let other teams integrate with his API?
+The solution would be to develop and keep automatically updated excellent
+documentation that would assure the quality of the work done and how effective
+it would be to start integrating with it, rather than using different
+microservices with multiple endpoints, in case of migration from REST to GraphQL,
+for example. It is very sad and excruciating to learn stories about developers
+having to deal with documenting their API or even codebase using outdated
+methods and tools such as Microsoft Word or Google Docs. It is a common mistake
+to think it would be time-consuming to build a tool that makes documentation
+easy, mainly because the technical writers and managerial roles do not know and
+do not want to read or learn how to read markdown syntax or have to deal with
+Git and GitHub. For this reason, this project has been done with a JAMStack
+headless solution in mind so that people covering those roles would have their
+slice of content sitting far away from the codebase, with a friendly interface
+that could then be fetched from the frontend framework in the project. To use a
+headless solution, as previously suggested, the content would need to be moved
+on a third-party storage and use an API to fetch it before build time, and
+having the CI/CD pipeline triggered on each change of the content! Overall the
+project has been successful, and many ideas came to my mind while building it. I
+have learned a lot of things, and I would be happy to see this solution being
+used in production to document and keep secure and protect more APIs. And to
+everyone out there working with GraphQL: keep your Introspection disabled!
