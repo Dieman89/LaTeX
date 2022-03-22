@@ -19,6 +19,25 @@ explores the solution that will be chased for the end goal.
   \label{f:ch5-architecture}
 \end{figure}
 
+\subsection{Packet Manager}
+\label{ss:Packet-Manager}
+
+A package manager js used to manage any project dependencies in different ways.
+It allows the developers to execute operations such as deleting, updating or
+installing packages or running scripts. NPM stands for Node Package Manager, and
+it was created in 2010. NPM is composed of three main parts: a website for user
+experience regarding npm aspects, a registry where all the packages are
+installed and released for the user, and a CLI to perform an operation from the
+terminal. Yarn was created in 2016, and it immediately showed more extraordinary
+performance than npm. It allowed the creation of a .lock file that contained the
+list of the version installed for each dependency, allowing repository sharing
+improvements. The main difference between these two package managers is how they
+run operations. In fact, Yarn uses a parallel way by installing decencies at the
+same time while NPM installs one package at a time. This increases performance
+and speed on any kind of operation for the dependencies and is the main reason
+why Yarn is the preferred package manager in this project, but also in the rest
+of the world.
+
 \section{Proof of Concept}
 \label{s:Proof of Concept}
 This section will discuss the first iteration of the project as Proof of Concept
@@ -320,32 +339,29 @@ included in the strict shortcut are the following: \texttt{noImplicitAny},
 \texttt{noImplicitThis}, \texttt{alwaysStrict}, \texttt{strictBindCallApply},
 \texttt{strictNullChecks}, \texttt{strictFunctionTypes}, and
 \texttt{strictPropertyInitialization}.
-
-\newpage
-Below a deep explaination of the options being used in this project:
-\begin{itemize}
-  \item \texttt{noImplicitAny}: is probably the most important as it basically
-  forces the developers to the usage of TypeScript and won't allow JavaScript at
-  all costs. Any code written in JavaScript, for example omitting the type in a
+\begin{description}
+  \item Below a deep explaination of the options being used in this project:
+  \item [noImplicitAny:] is probably the most important as it basically forces
+  the developers to the usage of TypeScript and won't allow JavaScript at all
+  costs. Any code written in JavaScript, for example omitting the type in a
   parameter of a function, will return an error in the compiler and the IDE
   itself. This is because, if no type is assigned, it will implicitly be
   assigned to a type called any, hence the name of the option. It is not good
   practice, but it is still possible to explicitly assign the any type to any
   variable or parameters and make the compiler not complain about it.
-  \item \texttt{noImplicitThis}: is another option that is used to prevent
-  implicit this usage in TypeScript. This is a very good option to use as it
-  will prevent implicit this usage in TypeScript and will return an error in the
-  compiler and the IDE itself.
-  \item \texttt{alwaysStrict}: is used to imaginary place a \texttt{"use
-  strict"} statement on top of any and every compiled JavaScript file that will
-  be generated from TypeScript.
-  \item \texttt{strictBindCallApply}: is used to prevent a common loophole
-  that would make the type check not working in certain situations. This
-  certainly is not a good thing, so keeping this option enabled is reccomended
-  in any project.
-  \item \texttt{strictNullChecks}: is a good option to prevent variables
-  with inferred or explicitly types to be assigned as null or undefined.
-  \item \texttt{strictFunctionTypes}: is an option that could be a little
+  \item [noImplicitThis:] is another option that is used to prevent implicit
+  this usage in TypeScript. This is a very good option to use as it will prevent
+  implicit this usage in TypeScript and will return an error in the compiler and
+  the IDE itself.
+  \item [alwaysStrict:] is used to imaginary place a \texttt{"use strict"}
+  statement on top of any and every compiled JavaScript file that will be
+  generated from TypeScript.
+  \item [strictBindCallApply:] is used to prevent a common loophole that would
+  make the type check not working in certain situations. This certainly is not a
+  good thing, so keeping this option enabled is reccomended in any project.
+  \item [strictNullChecks:] is a good option to prevent variables with
+  inferred or explicitly types to be assigned as null or undefined.
+  \item [strictFunctionTypes:] is an option that could be a little
   intimidating to explore and understand as it cover the world covariance and
   contravariance, which are topics that are covered more in programming
   languages such as Scala and are mostly used to build libraries as they are
@@ -353,36 +369,60 @@ Below a deep explaination of the options being used in this project:
   function type parameter checks to be contravariant instead of bivariant and it
   applies to all function types with the exception of the those that comes from
   constructors and methods declaration.
-  \item \texttt{strictPropertyInitialization}: this is related to classes and
-  a member of a class needs to be initialised with a value in the declaration or
+  \item [strictPropertyInitialization:] this is related to classes and a
+  member of a class needs to be initialised with a value in the declaration or
   constructor, otherwise an error will be thrown.
-\end{itemize}
+\end{description}
 
-\subsection{Packet Manager}
-\label{ss:Packet-Manager}
+\subsection{How to Run}
+\label{ss:how-to-run}
+The finalised product is a reference generator that takes a GraphQL schema and
+spits out a directory of interlinked markdown files for traversing. The
+intention is to create an exhaustive piece of documentation that can be used by
+those looking for a quick reference to a specific API.
 
-A package manager js used to manage any project dependencies in different ways.
-It allows the developers to execute operations such as deleting, updating or
-installing packages or running scripts. NPM stands for Node Package Manager, and
-it was created in 2010. NPM is composed of three main parts: a website for user
-experience regarding npm aspects, a registry where all the packages are
-installed and released for the user, and a CLI to perform an operation from the
-terminal. Yarn was created in 2016, and it immediately showed more extraordinary
-performance than npm. It allowed the creation of a .lock file that contained the
-list of the version installed for each dependency, allowing repository sharing
-improvements. The main difference between these two package managers is how they
-run operations. In fact, Yarn uses a parallel way by installing decencies at the
-same time while NPM installs one package at a time. This increases performance
-and speed on any kind of operation for the dependencies and is the main reason
-why Yarn is the preferred package manager in this project, but also in the rest
-of the world.
+\begin{description}
+  \item [Requirements:] to run the tool you will need a valid GraphQL schema
+  file
+  \item [Running it:] install the dependencies with \texttt{yarn install} and
+  run the tool with \texttt{yarn generate <path/to/schema> <path/to/output>
+  <linksPrefix>}.
+\end{description}
 
-\section{Frontend}
-\label{s:Frontend}
-In this part I will show how I produced the frontend part that generates the
-website.
+If a path to the schema is not given, the tool will look for a file named
+\texttt{./schema.graphql}. Markdown will be generated into the a specified path,
+otherwise it will output to a \texttt{\_generated\_} directory. Adding a
+linksPrefix is optional, if one it is not provided, the behaviour will be that
+all links to other markdown pages will be relative. If one is provided the links
+will be prefixed with the path provided.
+
+\subsection{MDX Generation}
+\label{ss:mdx-generation}
+
+From previous section, we are at the point where the tool is working and the
+command to generate the markdown files from a schema is given. The output will
+be a directory as shown in the figure below, with all the markdown files being
+generated from the schema.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/generate}
+  \caption{Generated Folder with Markdown Files}
+  \label{f:generate}
+\end{figure}
 
 \section{Version Control System}
 \label{s:Version-Control-System}
-GitHub etc
+To track changes to the code and have a record of each commit and the work that
+has been done during the development of the project, a version control system (VCS)
+has been used. In this project, Git is the chosen VCS and it is used with the
+integration of GitHub as companion to have a nice and clean interface and
+quality of life. Below a screenshot of the monorepo created and continously updated
+throughtout the project.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{figures/monorepo}
+  \caption{Monorepo}
+  \label{f:monorepo}
+\end{figure}

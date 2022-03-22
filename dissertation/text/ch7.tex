@@ -5,24 +5,80 @@ done in a future where time was not a constraint.
 
 \subsection{Headless CMS}
 \label{s:Headless-CMS}
+In order to separate the content from the frontend and backend, an Headless CMS
+would result in a very ideal choice. This would make the content management much
+more easier to maintain and to work with in a large scale as the content would be
+fetched through a third party API rather then having it in the source code.
 
 \subsection{CI/CD}
 \label{s:CI-CD}
+It would be very nice to not have to manually run things locally and have an
+automated pipeline to run tests in the continuous integration environment and
+deploy a new version of the service to a non-prod and prod environment. This
+whole process not only create the base of a service that would run on a server
+continously but also reduce manual errors from developers that would then only
+focus on writing code rather than monitoring the behaviour of the service in
+production.
 
 \subsection{Terraform}
 \label{s:Terraform}
+Terraform is a tool used to manage an infrastructure on AWS, Azure or Google
+Cloud Platform. It is known as infrastracture as code as it is used to defined
+the infra in configuration files, run the plan that would review and make
+changes to the infrastructure through the public API and finally apply the
+provision and update the state files on the remote servers.
 
 \subsection{Docker}
 \label{s:Docker}
+The benefits of containerisation are that it is easier to manage and it is
+easier to vertically scale the application. A containerised application uses less
+memory, start much quickly and enabled portability.
 
 \subsection{Software as a Service}
 \label{s:SaaS}
+It could be a nice idea to have the tool running on a distributed system that
+could operate on the web on demand. This would enable developers in need of fast
+documentation to have quick access and a portal up and running in a third party
+application with just a schema as a requirement. An integration would then be
+easily supported through GitHub as a registry to update and deliver schema
+evolutions automatically.
 
 \subsection{Integrated Frontend}
 \label{s:Integrated-Frontend}
+This would be part of the previous section, as once the schema is uploaded, it
+would require a frontend framework that render the files and display it to the
+end users.
 
 \subsection{Pure Functional Programming}
 \label{s:Pure-Functional-Programming}
+Probably a refactoring in another language that is more scalable and safe such
+as Scala with libraries such as Cats and Cats Effect would be a better choice
+and a safe bet for a tool used in production.
+
+\section{Tool Used}
+\label{s:Tool-Used}
+This section will expand on the tool used to create the project and the report.
+The text editor being used is \texttt{Visual Studio Code}.
+
+To avoid building everything manually on each change I am using a collection of
+tools that are well-integrated with my text editor: LaTeX Workshop, LaTeX
+Utilities, Zotero, LaTeX Better BibTeX
+
+LaTeX Workshop is probably the most important of all. It automatically builds
+and watches the output pdf file to have a nice hot-reload without closing and
+re-opening the file to see the changes in a very short delay time.
+
+LaTeX Utilities is an addon for LaTeX Workshop that expands some
+functionalities such as Zotero citation integrations and smart paste formatter
+for the images.
+
+Zotero does not only come in a form of a plugin, but also as Software for
+references and citations. This plugin will attach to the Zotero server and pull
+data from their endpoint to easily access the library.
+
+Better BibTeX automates the export of the library and keeps it automatically
+updated on each change (addition, removal, or change). This will export a nice
+\texttt{.bib} file that can then be used in LaTeX.
 
 
 \section{Reflection}
