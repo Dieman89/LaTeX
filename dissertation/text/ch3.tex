@@ -18,13 +18,10 @@ will dive into analysis and confrontation to understand this.
 \section{GraphQL Security and Performances}
 \label{s:GraphQLSecurity}
 \citet{hartigInitialAnalysisFacebook2017} define GraphQL as a new form of
-Web-based connectivity interface that provides alternatives to the concept of
-REST-based interfaces. Due to its benefits over REST, GraphQL has gained
+web-based connectivity interface that provides alternatives concept of
+REST approaches. Due to its benefits over REST, the subject of this paper (GraphQL) has gained
 popularity since its debut. GraphQL has grown in popularity and is being used by
-many users. GraphQL is a novel technique of interacting using Web APIs. It is an
-open-source database querying and manipulation language for application
-programming interfaces. It is a dynamic, interactive query-based language for
-interacting with APIs \citep{ eizingerAPIDesignDistributed2017}. According to
+many users. GraphQL is a novel technique of interacting using APIs. According to
 \citet{ vogelExperiencesMigratingRESTful2018}, GraphQL is not a database
 technology, as many people believe. Users may already be aware that most modern
 applications save their data on a distant server in a database, and here is
@@ -39,20 +36,15 @@ Consequently, the requested client query receives a response from the server app
 Client applications may inquire about what they need without relying on their
 server-side counterparts for guidance. \citet{
 hartigDefiningSchemasProperty2019}, in their research study, has focused on
-repurposing schemas for graph databases that are predicated on the Property
-Graph structure, which was initially intended as a language that clarifies
+repurposing schemas for graphs, which was initially intended as a language that clarifies
 various kinds of things, which can be queried when attempting to access a
-particular Web API The researchers thus rearticulate the notion of Schema
-Definition Languages (SDL) from the perspective of data use GraphQL uses a
-schema to express the form of the data graphs (ibid). Many different viewpoints
+particular Web API. The perspective of data use GraphQL have a
+schema to express the shape of the graphs (ibid). Many different viewpoints
 have been put together by the same author in his paper to define GraphQL schemas
 in terms of their quantitative definitions
 \citep{hartigInitialAnalysisFacebook2017}. GraphQL is sometimes described as an
 edge-labelled multi-graph with a dictionary of attributes, wherein every node is
-connected with an object type. Set F gives us the names of the fields in
-property keys. The three sets of fields (F), argument (A), and types (T)that
-make up a GraphQL schema; As stated by the authors, the graph (F, A, T)
-represents a tuple (ibid). \citet{britoMigratingGraphQLPractical2019} have a
+connected with an object type. \citet{britoMigratingGraphQLPractical2019} have a
 case study on migrating API customers to this new technology in this article.
 First, they surveyed the grey literature to acquire a thorough knowledge of the
 benefits and essential qualities of the technology that practitioners typically
@@ -60,8 +52,8 @@ connect with. Following that, \citet{britoMigratingGraphQLPractical2019}
 demonstrate these benefits in reality by moving seven services to GraphQL rather
 than typical REST-based APIs. As a crucial finding, the researchers demonstrated
 that it could significantly minimize the volume of JSON records supplied by REST
-APIs (ibid). In his research blog, \citet{kristopherUniqueBenefitsUsing2018}
-outlined the benefits of utilizing GraphQL. He also notes that since it is so
+APIs (ibid). In blog, \citet{kristopherUniqueBenefitsUsing2018}
+outlined the benefits of utilising the graph. He points that since it is so
 strong, it has been employed by some service providers who require a high level
 of accessibility and indexing speed. For the most part, the practical
 applications for GraphQL are those that need fast data flow and easy sorting and
@@ -71,7 +63,7 @@ and average transfer rates between requests, as noted by
 \citet{seabraRESTGraphQLPerformance2019}. Two-thirds of the evaluated
 applications found that moving to GraphQL led to a performance boost. After
 constructing REST and GraphQL API endpoints and testing them in an open-source
-playground, Seabra et al. performed a Proof of Concept not by transitioning to
+playground, Seabra et al. performed a PoC not by transitioning to
 GraphQL but rather by establishing prototype API endpoints for both testings the
 response time for data extraction across three iterations. In the first
 iteration there was little or no change when we investigated a single API
@@ -80,8 +72,8 @@ endpoint for GraphQL and REST with the 1000 data records quantity
 35\% faster response time utilizing GraphQL, despite a tenfold increase in data
 volume than Iteration 1 and Iteration 2 were conducted with 10000 data records
 (ibid). In the third iteration, whenever Seabra et al. raise the quantity of
-data 100 times the initial quantity and run using 100,000 data records, they
-evaluate three REST API endpoints rather than the needed one (ibid). The
+data 100 times the initial quantity and run using one hundred thousand records, they
+evaluate three endpoints rather than the needed one (ibid). The
 researchers suggested a roughly 40\% reduction in reaction time needed in
 the GraphQL experiment findings. According to Seabra et al. among software
 development experts, the subject of which architectural model to adopt is
@@ -93,15 +85,15 @@ reaction time and average transfer rates. Migration to GraphQL led to a dramatic
 increase in the average demand per second and information transfer rates in
 various evaluated apps. After the migration research, it was shown that
 GraphQL-based services performed worse than their REST-based counterparts for
-workloads exceeding 3000 requests, varying from 99 to 2160 KB per second. Both
+loads exceeding three thousands requests, varying 99 to 2160 KB/s. Both
 REST and GraphQL services performed similarly for simple workloads, with values
-ranging from 6.3 to 7.7 requests per second for work of 100 requests between
+ranging from 6 to 7 requests each second for work of one hundred requests between
 GraphQL and REST services. Researchers at Salt Security's Salt Labs discovered
 the flaws in the FinTech firm's mobile apps and SaaS platform while doing their
-study. Problems stemmed from a lack of authorization and nested queries being
+study. Problems stemmed from a lack of authorisation and nested queries being
 prone to many mistakes. Salt Labs discovered that the researchers might submit
 operations against any user's account or capture any customer's sensitive data
-if proper authorization checks were not implemented (Vadlamani et al., 2021). A
+if proper authorisation checks were not implemented (Vadlamani et al., 2021). A
 report from Salt Security shows that 62\% of firms have no or a minimal
 API security policy \citep{vadlamaniCanGraphQLReplace2021}. A basic attack like
 not verifying or cleaning the API queries may lead to trouble. According to
@@ -109,10 +101,9 @@ not verifying or cleaning the API queries may lead to trouble. According to
 preferable API management platform in environments with high data volumes, where
 response speed and the usage of fewer API endpoints are essential performance
 indicators. Although REST is becoming an enterprise standard and API
-administration utilizing REST endpoints has evolved, GraphQL has a learning
+administration utilising REST endpoints has evolved, GraphQL has a learning
 curve. With enhanced tooling features over time, future uses of GraphQL will
-rise manifold. This research spur other researchers to pursue performance,
-data-driven design, and flexibility in performance with minimal API involvement.
+rise manifold. This research spur other researchers to pursue the goal of flexibility and performance with minimal involvement.
 Several GraphQL implementations allow Introspection by default, which means they
 may be accessed without authentication \citep{eizingerAPIDesignDistributed2017}.
 The fact that Introspection enables the requester to understand all of the
@@ -180,7 +171,7 @@ creation and delivery of the REST API. The GraphQL lifecycle method is
 significantly different and more efficient, allowing frontend and backend
 programmers to operate concurrently without impeding the whole development
 process. GraphQL's essential quality is that it is less verbose than REST APIs.
-GraphQL prioritizes speed above everything else, whereas REST prioritizes
+GraphQL prioritises speed above everything else, whereas REST prioritises
 service dependability. It does not matter whether the REST API provides only a
 simple partial because it is still sending more data than is necessary
 \citep{vadlamaniCanGraphQLReplace2021}. The API can add new fields to the
@@ -219,7 +210,7 @@ was conducted to understand better what REST and GraphQL mean in software
 engineers' experience with APIs. Both API paradigms have advantages and
 disadvantages, and none can substitute the other. There is a clear preference in
 the GraphQL versus REST argument for REST APIs. A State of API 2020 report found
-that 82\% of API customers and practitioners utilize REST-based OpenAPI
+that 82\% of API customers and practitioners utilise REST-based OpenAPI
 authentication, whereas just 18\% use GraphQL (ibid). There has also been a
 steady rise in GraphQL's popularity. JavaScript use has increased from 5\%
 in 2016 to 38\% in 2019, as per the State of JavaScript 2019 Report
