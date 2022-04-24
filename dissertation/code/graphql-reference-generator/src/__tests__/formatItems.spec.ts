@@ -50,9 +50,10 @@ describe("formatType Function tests", () => {
       )! as GraphQLObjectType
     ).getFields();
     const queryField = Object.values(queryItems)[0] as GraphQLRawItem;
+    console.log(queryField);
 
     const output = formatItem(queryField);
-
+    console.log(output);
     expect(output).toMatchSnapshot();
   });
 

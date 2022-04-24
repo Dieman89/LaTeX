@@ -1,58 +1,163 @@
+"""
+This is a Tweet type
+"""
 type Tweet {
-    id: ID!
-    # The tweet text. No more than 140 characters!
-    body: String
-    # When the tweet was published
-    date: Date
-    # Who published the tweet
-    Author: User
-    # Views, retweets, likes, etc
-    Stats: Stat
+  """
+  Description of id.
+  """
+  id: ID!
+  """
+  Description of body.
+  """
+  body: String
+  """
+  Description of date.
+  """
+  date: Date
+  """
+  Description of Author.
+  """
+  Author: User
+  """
+  Description of Stats.
+  """
+  Stats: Stat
 }
-
+"""
+This is a User type
+"""
 type User {
-    id: ID!
-    username: String
-    first_name: String
-    last_name: String
-    full_name: String
-    name: String @deprecated
-    avatar_url: Url
+  """
+  Description of id.
+  """
+  id: ID!
+  """
+  Description of username.
+  """
+  username: String
+  """
+  User First Name
+  """
+  first_name: String
+  """
+  User Last Name
+  """
+  last_name: String
+  """
+  User full name
+  """
+  full_name: String
+  """
+  User name
+  """
+  name: String @deprecated
+  """
+  User avatar url
+  """
+  avatar_url: Url
 }
 
+"""
+The description of the type Stat
+"""
 type Stat {
-    views: Int
-    likes: Int
-    retweets: Int
-    responses: Int
+  """
+  The number of times this tweet has been viewed
+  """
+  views: Int
+  """
+  The number of times this tweet has been liked
+  """
+  likes: Int
+  """
+  The number of times this tweet has been retweeted
+  """
+  retweets: Int
+  """
+  Number of responses
+  """
+  responses: Int
 }
 
+"""
+The description of the type Notification
+"""
 type Notification {
-    id: ID
-    date: Date
-    type: String
+  """
+  The unique identifier for this notification
+  """
+  id: ID
+  """
+  The notification date
+  """
+  date: Date
+  """
+  The notification type
+  """
+  type: String
 }
 
+"""
+The description of the type Meta
+"""
 type Meta {
-    count: Int
+  # The current server time
+  count: Int
 }
 
+"""
+The Scalar URL type
+"""
 scalar Url
+"""
+The Scalar Date type
+"""
 scalar Date
 
+"""
+The Type Query Description
+"""
 type Query {
-    Tweet(id: ID!): Tweet
-    Tweets(limit: Int, skip: Int, sort_field: String, sort_order: String): [Tweet]
-    TweetsMeta: Meta
-    User(id: ID!): User
-    Notifications(limit: Int): [Notification]
-    NotificationsMeta: Meta
+  """
+  Get a list of tweets
+  """
+  Tweet(id: ID!): Tweet
+  """
+  Get a list of tweets
+  """
+  Tweets(limit: Int, skip: Int, sort_field: String, sort_order: String): [Tweet]
+  """
+  Description of TweetsMeta
+  """
+  TweetsMeta: Meta
+  """
+  Description of User
+  """
+  User(id: ID!): User
+  """
+  Description of Notifications
+  """
+  Notifications(limit: Int): [Notification]
+  """
+  Description of NotificationsMeta
+  """
+  NotificationsMeta: Meta
 }
 
+"""
+The Type Mutation Description
+"""
 type Mutation {
-    createTweet (
-        body: String
-    ): Tweet
-    deleteTweet(id: ID!): Tweet
-    markTweetRead(id: ID!): Boolean
+  """
+  Create a new tweet
+  """
+  createTweet(body: String): Tweet
+  """
+  Delete a tweet
+  """
+  deleteTweet(id: ID!): Tweet
+  """
+  Mark a tweet
+  """
+  markTweetRead(id: ID!): Boolean
 }
