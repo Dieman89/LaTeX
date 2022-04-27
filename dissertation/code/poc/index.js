@@ -160,8 +160,6 @@ const groupedTypes = Object.values(builtSchema.getTypeMap())
     }
   );
 
-console.log(groupedTypes);
-
 const queryTemplate = Handlebars.compile(
   fs.readFileSync("template.hbs").toString()
 );
@@ -172,7 +170,6 @@ if (!fs.existsSync("output/")) {
   fs.rmSync("output/", { recursive: true });
   fs.mkdirSync("output/", { recursive: true });
 }
-
 Object.keys(groupedTypes).forEach((group) => {
   fs.mkdirSync(`output/${group}`, { recursive: true });
 

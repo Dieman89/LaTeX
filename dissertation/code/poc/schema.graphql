@@ -1,121 +1,163 @@
 """
-This is a query type
+This is a Tweet type
+"""
+type Tweet {
+  """
+  Description of id.
+  """
+  id: ID!
+  """
+  Description of body.
+  """
+  body: String
+  """
+  Description of date.
+  """
+  date: Date
+  """
+  Description of Author.
+  """
+  Author: User
+  """
+  Description of Stats.
+  """
+  Stats: Stat
+}
+"""
+This is a User type
+"""
+type User {
+  """
+  Description of id.
+  """
+  id: ID!
+  """
+  Description of username.
+  """
+  username: String
+  """
+  User First Name
+  """
+  first_name: String
+  """
+  User Last Name
+  """
+  last_name: String
+  """
+  User full name
+  """
+  full_name: String
+  """
+  User name
+  """
+  name: String @deprecated
+  """
+  User avatar url
+  """
+  avatar_url: Url
+}
+
+"""
+The description of the type Stat
+"""
+type Stat {
+  """
+  The number of times this tweet has been viewed
+  """
+  views: Int
+  """
+  The number of times this tweet has been liked
+  """
+  likes: Int
+  """
+  The number of times this tweet has been retweeted
+  """
+  retweets: Int
+  """
+  Number of responses
+  """
+  responses: Int
+}
+
+"""
+The description of the type Notification
+"""
+type Notification {
+  """
+  The unique identifier for this notification
+  """
+  id: ID
+  """
+  The notification date
+  """
+  date: Date
+  """
+  The notification type
+  """
+  type: String
+}
+
+"""
+The description of the type Meta
+"""
+type Meta {
+  # The current server time
+  count: Int
+}
+
+"""
+The Scalar URL type
+"""
+scalar Url
+"""
+The Scalar Date type
+"""
+scalar Date
+
+"""
+The Type Query Description
 """
 type Query {
   """
-  Description of accountById. Look how lovely
+  Get a list of tweets
   """
-  accountById(id: ID!): Account
-  accounts(first: Int, after: String): AccountConnection! @deprecated
-
-  customerProfileById(id: ID!): CustomerProfile
-  customerProfiles(first: Int, after: String): CustomerProfileConnection!
+  Tweet(id: ID!): Tweet
+  """
+  Get a list of tweets
+  """
+  Tweets(limit: Int, skip: Int, sort_field: String, sort_order: String): [Tweet]
+  """
+  Description of TweetsMeta
+  """
+  TweetsMeta: Meta
+  """
+  Description of User
+  """
+  User(id: ID!): User
+  """
+  Description of Notifications
+  """
+  Notifications(limit: Int): [Notification]
+  """
+  Description of NotificationsMeta
+  """
+  NotificationsMeta: Meta
 }
 
+"""
+The Type Mutation Description
+"""
 type Mutation {
-  test(message: TestInput): String
-}
-
-input TestInput {
-  id: String
-}
-
-type Subscription {
-  testSubscription(id: String): Account
-}
-
-type PageInfo {
-  hasPreviousPage: Boolean!
-  hasNextPage: Boolean!
-}
-
-type Account {
-  id: ID!
   """
-  Description
+  Create a new tweet
   """
-  startFrom: AWSUnion
-  customerAccountRelationships(
-    first: Int
-    after: String
-  ): CustomerAccountRelationshipConnection!
+  createTweet(body: String): Tweet
+  """
+  Delete a tweet
+  """
+  deleteTweet(id: ID!): Tweet
+  """
+  Mark a tweet
+  """
+  markTweetRead(id: ID!): Boolean
 }
-
-type AccountConnection {
-  edges: [AccountEdge!]!
-  pageInfo: PageInfo!
-}
-
-type AccountEdge {
-  cursor: String!
-  node: Account!
-}
-
-type CustomerProfile {
-  id: ID!
-  emailAddress: AWSEmail
-  givenName: String! @deprecated
-  familyName: String!
-  birthdate: AWSDate
-  phoneNumbers: [String]!
-  address: Address
-  enabled: Boolean!
-  marketingPreferences: [MarketingPreference]!
-  specialCommPreferences: [String]
-  customerAccountRelationships(
-    first: Int
-    after: String
-  ): CustomerAccountRelationshipConnection!
-}
-
-type Address {
-  country: String!
-  address: String!
-}
-
-enum MarketingPreference {
-  Email
-  Post
-  SMS
-}
-
-type CustomerProfileConnection {
-  edges: [CustomerProfileEdge!]!
-  pageInfo: PageInfo!
-}
-
-type CustomerProfileEdge {
-  cursor: String!
-  node: CustomerProfile!
-}
-
-type CustomerAccountRelationship {
-  account: Account!
-  customerProfile: CustomerProfile!
-  isPrimaryCustomer: Boolean!
-  isFinanciallyLiable: Boolean!
-}
-
-type CustomerAccountRelationshipConnection {
-  edges: [CustomerAccountRelationshipEdge!]!
-  pageInfo: PageInfo!
-}
-
-type CustomerAccountRelationshipEdge {
-  cursor: String!
-  node: CustomerAccountRelationship!
-}
-
-directive @deprecated(
-  reason: String = "No longer supported"
-) on FIELD_DEFINITION | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | ENUM_VALUE
-
-scalar AWSDate
-scalar AWSDateTime
-scalar AWSEmail
-
-interface Something {
-  id: String
-}
-
-union AWSUnion = AWSDateTime | AWSDate
