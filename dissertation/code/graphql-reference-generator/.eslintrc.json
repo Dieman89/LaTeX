@@ -1,6 +1,29 @@
 {
   "env": {
-    "jest/globals": true
+    "node": true,
+    "es2020": true
   },
-  "extends": ["plugin:jest/recommended"]
+  "extends": ["eslint:recommended", "plugin:jest/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "no-prototype-builtins": 0
+  },
+  "ignorePatterns": ["node_modules/", "dist/", "__generated__/"],
+  "root": true,
+  "overrides": [
+    {
+      "files": ["**/*.tsx", "**/*.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-non-null-assertion": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/ban-ts-comment": 0
+      },
+      "plugins": ["@typescript-eslint"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ]
 }
