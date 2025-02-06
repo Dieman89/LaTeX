@@ -2,7 +2,7 @@
 
 [![GitHub Super-Linter](https://github.com/Dieman89/dissertation/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/Dieman89/dissertation)
 
-This is a collection of my third-year projects in LaTeX. It includes all the reports, logbooks, and final year projects from the start till the end of the year.
+This is a collection of my last year projects in LaTeX. It includes all the reports, logbooks, and final year projects from the start till the end of the year.
 
 ## Manual Builds
 
